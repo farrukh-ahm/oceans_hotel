@@ -93,6 +93,19 @@ DATABASES = {
     )
 }
 
+# database = os.environ.get('DATABASE_URL')
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'defaultdb',
+#         'USER': 'avnadmin',
+#         'PASSWORD': 'AVNS_TlfSvHPaL0mFcK_h2_P',
+#         'HOST': 'hotel-management-farrukh-hotel-management.e.aivencloud.com',
+#         'PORT': '24336'
+#     }
+# }
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
