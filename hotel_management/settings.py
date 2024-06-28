@@ -88,9 +88,11 @@ WSGI_APPLICATION = 'hotel_management.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(
-        os.environ.get('DATABASE_URL')
-    )
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+}
+
+DATABASES['default']['OPTIONS'] = {
+    'options': f'-h {os.getenv("DB_HOST")} -p {os.getenv("DB_PORT")}'
 }
 
 # database = os.environ.get('DATABASE_URL')
