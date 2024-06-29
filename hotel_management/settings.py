@@ -87,9 +87,11 @@ WSGI_APPLICATION = 'hotel_management.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
-# }
+DATABASES = {
+    'default': dj_database_url.parse(
+        os.environ.get('DATABASE_URL')
+    )
+}
 
 # DATABASES['default']['OPTIONS'] = {
 #     'options': f'-h {os.getenv("DB_HOST")} -p {os.getenv("DB_PORT")}'
@@ -97,16 +99,16 @@ WSGI_APPLICATION = 'hotel_management.wsgi.application'
 
 # database = os.environ.get('DATABASE_URL')
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT')
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.environ.get('DB_NAME'),
+#         'USER': os.environ.get('DB_USER'),
+#         'PASSWORD': os.environ.get('DB_PASSWORD'),
+#         'HOST': os.environ.get('DB_HOST'),
+#         'PORT': os.environ.get('DB_PORT')
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
