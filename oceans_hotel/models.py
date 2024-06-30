@@ -9,9 +9,6 @@ ROOM_CAT = (
     ("TRI", "Triple"),
     ("DLX", "Deluxe"),
     ("SUT", "Suite"),
-    ("QUN", "Queen"),
-    ("KNG", "king"),
-    ("VLA", "Villa")
 )
 
 class Rooms(models.Model):
@@ -24,3 +21,15 @@ class Rooms(models.Model):
     def __str__(self):
         return f"{self.room_no}: {self.category}"
 
+
+class Bookings(models.Model):
+    guest = models.ForeignKey(User, on_delete=models.CASCADE, related_name="booked_by")
+    room_booked = models.ForeignKey(Rooms, on_delete=models.CASCADE, related_name="room")
+    check_in = models.DateField()
+    check_out = models.DateField()
+
+    class Meta:
+        ordering = ['room_booked']
+
+    def __str__(self):
+        return f"Room: {self.room_booked}, Guest: {self.user}"

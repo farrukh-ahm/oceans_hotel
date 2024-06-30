@@ -8,7 +8,7 @@
 
 body{
     min-height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 header{
@@ -46,6 +46,12 @@ h1:hover, h1:focus{
     }
 }
 
+
+.wrapper{
+
+    min-block-size: 100dvh;
+
+}
 
 nav{
 
@@ -114,4 +120,36 @@ nav{
     .check:has(input:checked) + .menu-items{
         transform: translateX(0);
     }
+}
+
+
+/* ---------------- INDEX PICTURE ------------------------ */
+
+.index-cars-container{
+
+    inline-size: min(50rem, 100%);
+    block-size: 50rem;
+    margin-inline: auto;
+    position: relative;
+    margin-block-start: 3rem;
+    background-color: aqua;
+
+}
+
+.carousel-container{
+
+    position: absolute;
+    inset: 0;
+    display: flex;
+    overflow: hidden;
+    background-color: antiquewhite;
+
+}
+
+.caro-pic{
+
+    flex: none;
+    inline-size: 100%;
+    block-size: 100%;
+
 }
