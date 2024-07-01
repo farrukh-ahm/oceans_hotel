@@ -271,7 +271,8 @@ nav{
 
     inline-size: 100%;
     min-block-size: 30rem;
-    background-color: var(--white-section);
+    /* background-color: var(--white-section); */
+    /* background-color: burlywood; */
     color: var(--white-section-color);
 
 }
@@ -279,8 +280,47 @@ nav{
 .services-container{
 
     inline-size: 50%;
-    min-block-size: 80%;
+    min-block-size: 20em;
+    margin-block: 1.5em;
     margin-inline: auto;
-    background-color: aqua;
+    padding-inline: 0.5em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9.5em, 1fr));
+    column-gap: 1em;
+    row-gap: 1.5em;
+    place-content: center;
+    /* background-color: aqua; */
 
+}
+
+.services{
+
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1em;
+    /* background-color: blue; */
+
+}
+
+.icon i {
+    font-size: 3em;
+}
+
+.services > p{
+    font-size: 1em;
+}
+
+@media (max-width: 1050px){
+    .services-container{
+        inline-size: 80%;
+    }
+}
+
+@media (max-width: 670px){
+    .services-container{
+        inline-size: 100%;
+    }
 }
