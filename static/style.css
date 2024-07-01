@@ -162,13 +162,14 @@ nav{
 .index-cars-container{
 
     container: sliders / inline-size;
-    inline-size: min(55rem, 100%);
-    aspect-ratio: 1.5/1;
+    /* inline-size: min(55rem, 100%); */
+    inline-size: 100%;
+    aspect-ratio: 2.5/1;
     /* block-size: 50rem; */
     margin-inline: auto;
     position: relative;
-    margin-block: 2.5rem;
-    border-radius: 8px;
+    /* margin-block: 2.5rem; */
+    /* border-radius: 8px; */
     /* background-color: aqua; */
 
 }
@@ -179,7 +180,7 @@ nav{
     inset: 0;
     display: flex;
     overflow: hidden;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     scroll-behavior: smooth;
 
 }
@@ -189,7 +190,7 @@ nav{
     flex: none;
     inline-size: 100%;
     block-size: 100%;
-    border-radius: 8px;
+    /* border-radius: 8px; */
 
 }
 
@@ -272,9 +273,14 @@ nav{
     min-block-size: 30rem;
     background-color: var(--white-section);
     color: var(--white-section-color);
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around; */
+
+}
+
+.services-container{
+
+    inline-size: 50%;
+    min-block-size: 80%;
+    margin-inline: auto;
+    background-color: aqua;
 
 }
