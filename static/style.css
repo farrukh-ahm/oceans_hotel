@@ -127,12 +127,15 @@ nav{
 
 .index-cars-container{
 
-    inline-size: min(50rem, 100%);
-    block-size: 50rem;
+    container: sliders / inline-size;
+    inline-size: min(55rem, 100%);
+    aspect-ratio: 1.5/1;
+    /* block-size: 50rem; */
     margin-inline: auto;
     position: relative;
     margin-block-start: 3rem;
-    background-color: aqua;
+    border-radius: 8px;
+    /* background-color: aqua; */
 
 }
 
@@ -142,7 +145,8 @@ nav{
     inset: 0;
     display: flex;
     overflow: hidden;
-    background-color: antiquewhite;
+    border-radius: 8px;
+    scroll-behavior: smooth;
 
 }
 
@@ -151,5 +155,48 @@ nav{
     flex: none;
     inline-size: 100%;
     block-size: 100%;
+    border-radius: 8px;
+
+}
+
+.slider{
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    block-size: 4em;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    place-content: center;
+    background-color: rgba(222, 222, 222, 0.5);
+    backdrop-filter: blur(2px);
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.slider i {
+    font-size: 1.5em;
+    color: rgba(0,0,0,0.8)
+}
+
+.left-slider{
+    left: 0;
+    margin-inline-start: 0.5em;
+    display: none;
+}
+
+.right-slider{
+    right: 0;
+    margin-inline-end: 0.5em;
+}
+
+@container sliders (inline-size<=750px){
+
+    .index-cars-container .slider{
+
+        block-size: 2.25em;
+
+    }
 
 }
