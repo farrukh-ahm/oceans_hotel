@@ -38,3 +38,20 @@ rightSlider.addEventListener("click", e=>{
     }
 
 })
+
+
+// -------------------- RESTRICTING THE CHECK-IN DATES
+let checkIn = document.querySelector("#check-in");
+
+if(checkIn){
+
+    let todayDate = new Date()
+    let dateForm = todayDate.getFullYear()+ "-" + ("0"+(todayDate.getMonth()+1)).slice(-2) + "-" + ("0" + todayDate.getDate()).slice(-2)    
+    checkIn.min = `${dateForm.toString()}`
+    // console.log(checkIn.min)
+
+    let checkOut = document.querySelector("#check-out")
+    let outDate = todayDate.getFullYear()+ "-" + ("0"+(todayDate.getMonth()+1)).slice(-2) + "-" + ("0" + (parseInt(todayDate.getDate())+1).toString()).slice(-2)
+    checkOut.min = `${outDate.toString()}`
+    console.log(outDate)
+}

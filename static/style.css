@@ -18,6 +18,7 @@
     --black-section-color: rgb(255,255,255);
     --white-section: rgb(255,255,255);
     --white-section-color: rgb(0,0,0);
+    --section-block: 30rem;
 
 }
 
@@ -270,7 +271,7 @@ nav{
 .services-section{
 
     inline-size: 100%;
-    min-block-size: 30rem;
+    min-block-size: var(--section-block);
     /* background-color: var(--white-section); */
     /* background-color: burlywood; */
     color: var(--white-section-color);
@@ -279,13 +280,13 @@ nav{
 
 .services-container{
 
-    inline-size: 50%;
+    min-inline-size: 50%;
     min-block-size: 20em;
     margin-block: 1.5em;
     margin-inline: auto;
     padding-inline: 0.5em;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(9.5em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
     column-gap: 1em;
     row-gap: 1.5em;
     place-content: center;
@@ -295,13 +296,12 @@ nav{
 
 .services{
 
-    aspect-ratio: 1;
+    block-size: 5.5em;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     font-size: 1em;
-    /* background-color: blue; */
 
 }
 
@@ -313,7 +313,7 @@ nav{
     font-size: 1em;
 }
 
-@media (max-width: 1050px){
+/* @media (max-width: 1050px){
     .services-container{
         inline-size: 80%;
     }
@@ -323,4 +323,13 @@ nav{
     .services-container{
         inline-size: 100%;
     }
+} */
+
+.booking-section{
+
+    inline-size: 100%;
+    min-block-size: var(--section-block);
+    background-color: var(--black-section);
+    color: var(--black-section-color);
+
 }
