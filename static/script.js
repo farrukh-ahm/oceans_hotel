@@ -53,5 +53,26 @@ if(checkIn){
     let checkOut = document.querySelector("#check-out")
     let outDate = todayDate.getFullYear()+ "-" + ("0"+(todayDate.getMonth()+1)).slice(-2) + "-" + ("0" + (parseInt(todayDate.getDate())+1).toString()).slice(-2)
     checkOut.min = `${outDate.toString()}`
-    console.log(outDate)
+    // console.log(outDate)
 }
+
+
+// const radios = document.querySelector(".radios::is('selected')")
+// console.log(radios)
+const radios = document.querySelectorAll(".radios")
+radios.forEach(radio => radio.addEventListener("click", e=>{
+    let attri = e.target.getAttribute("data-value")
+    console.log(attri)
+
+}))
+
+const indexButton = document.querySelector(".index-room-search")
+indexButton.addEventListener("click", e=>{
+
+    e.preventDefault()
+
+    console.log(checkIn.value)
+    let selectedRooms = document.querySelectorAll(".cat-container:has(.radios:checked)")
+    console.log(selectedRooms)
+
+})

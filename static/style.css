@@ -327,9 +327,99 @@ nav{
 
 .booking-section{
 
+    container: date-field / inline-size;
     inline-size: 100%;
     min-block-size: var(--section-block);
     background-color: var(--black-section);
     color: var(--black-section-color);
+
+}
+
+.index-form{
+
+    inline-size: 80%;
+    min-block-size: 20em;
+    margin-inline: auto;
+    padding-block: 1.25em;
+    /* border: 1px solid salmon; */
+    /* background-color: aqua; */
+
+}
+
+fieldset{
+    border: none;
+}
+
+.dates{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1em;
+}
+
+#check-in, #check-out{
+    font-size: 1.25em;
+    margin-inline-start: 0.25em;
+    margin-block-start: 1em;
+}
+
+.room-cat{
+
+    inline-size: 100%;
+    min-block-size: 15em;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10em,1fr));
+    place-items: center;
+    justify-content: center;
+    row-gap: 1em;
+    column-gap: 1.5em; */
+    margin-block: 2em;
+    padding-inline: 2em;
+    /* text-align: center; */
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1.75em;
+    flex-wrap: wrap;
+
+}
+
+.cat-container{
+
+    block-size: 12em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.radios{
+    display: none;
+}
+
+.cat-container img{
+
+    inline-size: 100%;
+    block-size: 85%;
+    object-fit: contain;
+    border-radius: 5px;
+
+}
+
+.cat-container:has(.radios:checked){
+    border: 2px red solid;
+}
+
+/* .cat-container:has(.radios:checked) + .cat-container{
+    opacity: 0.5;
+} */
+
+@container date-field (inline-size<=980px){
+
+    .booking-section .index-form{
+        inline-size: 100%;
+    }
 
 }
