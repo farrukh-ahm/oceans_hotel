@@ -59,20 +59,20 @@ if(checkIn){
 
 // const radios = document.querySelector(".radios::is('selected')")
 // console.log(radios)
-const radios = document.querySelectorAll(".radios")
-radios.forEach(radio => radio.addEventListener("click", e=>{
-    let attri = e.target.getAttribute("data-value")
-    console.log(attri)
+// const radios = document.querySelectorAll(".radios")
+// radios.forEach(radio => radio.addEventListener("click", e=>{
+//     let attri = e.target.getAttribute("data-value")
+//     console.log(attri)
 
-}))
+// }))
 
-const indexButton = document.querySelector(".index-room-search")
-indexButton.addEventListener("click", e=>{
+// const indexButton = document.querySelector(".index-room-search")
+// indexButton.addEventListener("click", e=>{
 
-    e.preventDefault()
+//     e.preventDefault()
 
-    console.log(checkIn.value)
-    let selectedRooms = document.querySelectorAll(".cat-container:has(.radios:checked)")
-    console.log(selectedRooms)
+//     console.log(checkIn.value)
+//     let selectedRooms = document.querySelectorAll(".cat-container:has(.radios:checked)")
+//     console.log(selectedRooms)
 
-})
+// })
