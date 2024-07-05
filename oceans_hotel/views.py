@@ -17,15 +17,13 @@ class Home(View):
 class BookSearch(View):
 
     def get(self, request, *args, **kwargs):
-        check_in = self.request.GET.get("check_in")
-        check_out = self.request.GET.get("check_out")
-        rooms = self.request.GET.get("room")
-        r =self.request.GET.items()
 
-        for room in r:
-            print(room)
+        r =self.request.GET.keys()
+        room_array = list(filter(lambda x: x=="single" or x=="double" or x=="triple" or x=="deluxe" or x=="suite", r))
+        
 
         print("*"*15)
-        print(check_in, check_out, r)
+        print(room_array)
+        # print(check_in, check_out, r)
 
         return render(request, 'index.html')
