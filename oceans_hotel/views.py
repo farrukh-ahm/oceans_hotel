@@ -18,12 +18,14 @@ class BookSearch(View):
 
     def get(self, request, *args, **kwargs):
 
-        r =self.request.GET.keys()
-        room_array = list(filter(lambda x: x=="single" or x=="double" or x=="triple" or x=="deluxe" or x=="suite", r))
+        # r =self.request.GET.keys()
+        r = self.request.GET.dict()
+        room_array = list(filter(lambda x: r[x]=="on", r))
         
 
         print("*"*15)
         print(room_array)
+        # print(r)
         # print(check_in, check_out, r)
 
         return render(request, 'index.html')

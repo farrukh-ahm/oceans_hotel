@@ -42,6 +42,7 @@ rightSlider.addEventListener("click", e=>{
 
 // -------------------- RESTRICTING THE CHECK-IN DATES
 let checkIn = document.querySelector("#check-in");
+let checkOut = document.querySelector("#check-out")
 
 if(checkIn){
 
@@ -50,12 +51,26 @@ if(checkIn){
     checkIn.min = `${dateForm.toString()}`
     // console.log(checkIn.min)
 
-    let checkOut = document.querySelector("#check-out")
     let outDate = todayDate.getFullYear()+ "-" + ("0"+(todayDate.getMonth()+1)).slice(-2) + "-" + ("0" + (parseInt(todayDate.getDate())+1).toString()).slice(-2)
     checkOut.min = `${outDate.toString()}`
     // console.log(outDate)
 }
 
+checkOut.addEventListener("change", e=>{
+    let inDate = checkIn.value
+    let outDate = checkOut.value
+
+    if(inDate>outDate){
+        document.querySelector(".field-container p").style.opacity = 1;
+        document.querySelector(".index-room-search").style.display = "none";
+        return
+    }
+    if (inDate<outDate){
+        document.querySelector(".field-container p").style.opacity = 0;
+        document.querySelector(".index-room-search").style.display = "block"
+        return
+    }
+})
 
 // const radios = document.querySelector(".radios::is('selected')")
 // console.log(radios)
