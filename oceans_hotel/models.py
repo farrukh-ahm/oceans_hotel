@@ -29,7 +29,7 @@ class Bookings(models.Model):
     check_out = models.DateField()
 
     class Meta:
-        ordering = ['room_booked']
+        ordering = ['-check_in']
 
     def __str__(self):
-        return f"Room: {self.room_booked}, Guest: {self.user}"
+        return f"Room: {self.room_booked}, Guest: {self.guest}, Check In: {self.check_in}, Check Out: {self.check_out}"
