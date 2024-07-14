@@ -2,8 +2,12 @@
 
 {% block content %}
 
-    {% for room in avail_rooms %}
-        {{room.room_no}} : {{room.room.check_in}}, {{room.check_out}}
-    {% endfor %}
+    {% if avail_rooms %}
+        {% for room in avail_rooms %}
+            {{room}}
+        {% endfor %}
+    {% else %}
+        <p>No rooms selected</p>
+    {% endif %}
 
 {% endblock %}

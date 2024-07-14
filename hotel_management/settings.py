@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'django.contrib.staticfiles',
     'oceans_hotel',
+    'oceans_hotel.booking_check',
 ]
 
 MIDDLEWARE = [

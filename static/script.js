@@ -72,22 +72,26 @@ checkOut.addEventListener("change", e=>{
     }
 })
 
-// const radios = document.querySelector(".radios::is('selected')")
-// console.log(radios)
-// const radios = document.querySelectorAll(".radios")
-// radios.forEach(radio => radio.addEventListener("click", e=>{
-//     let attri = e.target.getAttribute("data-value")
-//     console.log(attri)
 
-// }))
+// -------------------- ENSURING ONLY ONE ROOM CATEGORY SELECTION
+const rooms = document.querySelectorAll(".radios")
 
-// const indexButton = document.querySelector(".index-room-search")
-// indexButton.addEventListener("click", e=>{
+rooms.forEach(room => room.addEventListener("change", e=>{
 
-//     e.preventDefault()
+    if(e.target.checked){
+        rooms.forEach(room =>{
+            if(!room.checked){
+                room.disabled = true
+            }
+        })
+    }
 
-//     console.log(checkIn.value)
-//     let selectedRooms = document.querySelectorAll(".cat-container:has(.radios:checked)")
-//     console.log(selectedRooms)
+    else{
+        rooms.forEach(room =>{
+            if(!room.checked){
+                room.disabled = false
+            }
+        })
+    }
 
-// })
+}))
