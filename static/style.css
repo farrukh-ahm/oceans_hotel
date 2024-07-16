@@ -33,9 +33,9 @@ body{
     inline-size: 100%;
     block-size: 3.5rem;
     text-align: center;
-    align-content: center;
+    place-items: center;
     font-family: var(--title-font);
-    padding-block: 1em;
+    /* padding-block: 1em; */
     /* background-color: red; */
 
     h2{
@@ -447,4 +447,66 @@ fieldset{
     margin-inline: auto;
     display: none;
     transition: all 0.3s linear;
+}
+
+/* ---------------- LOCATIONS SECTION ------------------------ */
+
+.locations-section{
+
+    inline-size: 100%;
+    block-size: var(--section-block);
+    background-color: var(--white-section);
+    color: var(--white-section-color);
+    /* place-content: center; */
+
+}
+
+.location-wrapper{
+
+    inline-size: 60%;
+    min-block-size: 20em;
+    margin-block: 1.5em;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    /* background-color: aquamarine; */
+
+}
+
+.loc-card{
+
+    block-size: 15em;
+    aspect-ratio: 3/4;
+    position: relative;
+    background-color: black;
+
+    img{
+        position: absolute;
+        inset: 1;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .para{
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        inline-size: 100%;
+        block-size: 2.25em;
+        background-color: rgba(0,0,0,0.5);
+        color: white;
+        text-align: center;
+        align-content: center;
+
+        p{
+            font-weight: 700;
+        }
+    }
+
 }
