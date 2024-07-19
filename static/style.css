@@ -26,6 +26,7 @@ body{
     min-height: 100vh;
     font-family: var(--body-font);
     overflow-x: hidden;
+    /* perspective: 800px; */
 }
 
 .title-container{
@@ -497,11 +498,25 @@ fieldset{
 
 }
 
+.perspective-box{
+    transform-style: preserve-3d;
+    transform-origin: center;
+    position: relative;
+    transform: perspective(900px);
+}
+
+.perspective-box:hover .loc-card{
+    transform: rotateY(70deg)
+}
+
 .loc-card{
 
     block-size: 15em;
     aspect-ratio: 3/4;
     position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(20%);
+    transition: all 0.5s linear;
     /* background-color: black; */
 
     img{
@@ -530,6 +545,10 @@ fieldset{
         }
     }
 
+    /* &:hover{
+        transform: rotateY(90deg);
+    } */
+
 }
 
 .footer-section{
@@ -537,5 +556,54 @@ fieldset{
     inline-size: 100%;
     min-block-size: 12rem;
     background-color: var(--black-section);
+    color: var(--black-section-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+
+    .footer-head{
+        font-family: var(--title-font);
+        font-size: 2em;
+    }
+
+    .socials-container{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 1.75em;
+        flex-wrap: wrap;
+
+        .social {
+
+            background-color: var(--black-section-color);
+            background-clip: text;
+            transition: all 0.3s linear;
+
+             i {
+                font-size: 1.5em;
+                cursor: pointer;
+                /* background-color: red;
+                background-clip: text; */
+                color: transparent;
+            }
+
+        }
+
+        .social.insta{
+            background-image: linear-gradient(to right,  #f9ce34, #ee2a7b, #6228d7);
+            /* background-clip: text; */
+        }
+
+        .fb{
+            background-color: #1877F2;
+        }
+
+        .twitter{
+            background-color: #1DA1F2;
+        }
+    }
 
 }
+
