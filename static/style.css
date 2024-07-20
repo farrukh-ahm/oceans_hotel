@@ -17,9 +17,9 @@
     --black-section: #080808;
     --black-section-color: rgb(255,255,255);
     --white-section: rgb(255,255,255);
-    --white-section-color: #080808;
+    --white-section-color: rgb(128, 70, 27);
     --section-block: 30rem;
-
+    --bg-gradient: linear-gradient(to right, #c2b280, #c5b282, #c8b284, #cbb387, #ceb389, #d2b78d, #d7ba92, #dbbe96, #e1c69d, #e8cea4, #eed6ac, #f5deb3);
 }
 
 body{
@@ -36,6 +36,7 @@ body{
     text-align: center;
     place-items: center;
     font-family: var(--title-font);
+    margin-top: 2em;
     /* padding-block: 1em; */
     /* background-color: red; */
 
@@ -52,12 +53,13 @@ a{
 
 header{
 
-    background-color: var(--black-section);
+    /* background-color: var(--black-section); */
+    background-image: var(--bg-gradient);
     display: flex;
     justify-content: space-between;
     block-size: 8rem;
     inline-size: 100dvw;
-    background-image: url("../media/waves.gif");
+    /* background-image: url("../media/waves.gif"); */
     /* overflow: hidden; */
 }
 
@@ -148,7 +150,7 @@ nav{
         z-index: -1;
         transition: all 0.5s ease-in;
         align-content: center;
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(128, 70, 27, 0.5);
         backdrop-filter: blur(5px);
 
         li{
@@ -226,7 +228,7 @@ nav{
     border-radius: 50%;
     place-content: center;
     background-color: rgba(222, 222, 222, 0.5);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(5px);
     cursor: pointer;
     text-align: center;
 
@@ -234,7 +236,7 @@ nav{
 
 .slider i {
     font-size: 1.5em;
-    color: rgba(0,0,0,0.8)
+    color: var(--white-section-color)
 }
 
 .left-slider{
@@ -280,7 +282,8 @@ nav{
     min-block-size: 25rem;
     align-content: center;
     text-align: center;
-    background-color: var(--black-section);
+    /* background-color: var(--black-section); */
+    background-image: var(--bg-gradient);
     color: var(--black-section-color);
 
     p{
@@ -400,16 +403,8 @@ fieldset{
 
     inline-size: 100%;
     min-block-size: 15em;
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10em,1fr));
-    place-items: center;
-    justify-content: center;
-    row-gap: 1em;
-    column-gap: 1.5em; */
     margin-block: 2em;
     padding-inline: 2em;
-    /* text-align: center; */
-    /* background-color: aquamarine; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -424,6 +419,7 @@ fieldset{
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.2s linear;
 
 }
 
@@ -436,7 +432,7 @@ fieldset{
     inline-size: 100%;
     block-size: 85%;
     object-fit: contain;
-    /* border-radius: 5px; */
+    border-radius: 5px;
 
 }
 
@@ -476,10 +472,17 @@ fieldset{
 .locations-section{
 
     inline-size: 100%;
-    block-size: var(--section-block);
-    background-color: var(--black-section);
+    min-block-size: var(--section-block);
+    /* background-color: var(--black-section); */
+    background-image: var(--bg-gradient);
     color: var(--black-section-color);
     /* place-content: center; */
+
+}
+
+.location-title{
+
+    padding-top: 2em;
 
 }
 
@@ -487,7 +490,9 @@ fieldset{
 
     inline-size: 60%;
     min-block-size: 20em;
-    margin-block: 1.5em;
+    margin-block-start: 1.5em;
+    padding-block: 2em;
+    /* margin-block-end: 3em; */
     margin-inline: auto;
     display: flex;
     justify-content: space-around;
@@ -526,6 +531,7 @@ fieldset{
         block-size: 100%;
         object-fit: cover;
         object-position: center;
+        border-radius: 5px;
     }
 
     .para{
@@ -535,7 +541,7 @@ fieldset{
         left: 0;
         inline-size: 100%;
         block-size: 2.25em;
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(128, 70, 27, 0.5);
         color: white;
         text-align: center;
         align-content: center;
@@ -551,11 +557,14 @@ fieldset{
 
 }
 
+
+/* ---------------- FOOTER SECTION ------------------------ */
 .footer-section{
 
     inline-size: 100%;
     min-block-size: 12rem;
-    background-color: var(--black-section);
+    /* background-color: var(--black-section); */
+    background-image: var(--bg-gradient);
     color: var(--black-section-color);
     display: flex;
     flex-direction: column;
