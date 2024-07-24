@@ -29,6 +29,9 @@ body{
     /* perspective: 800px; */
 }
 
+
+/* ---------------- GLOBAL STYLINGS ------------------------ */
+
 .title-container{
 
     inline-size: 100%;
@@ -50,6 +53,100 @@ a{
     text-decoration: none;
     color: inherit
 }
+
+.btn{
+
+    inline-size: 5em;
+    aspect-ratio: 2/1;
+    text-align: center;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+}
+
+.btn::after{
+
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    inline-size: 100%;
+    block-size: 100%;
+    z-index: -1;
+    transition: all 0.3s linear;
+
+}
+
+.btn:hover::after{
+    transform: translateX(0);
+}
+
+
+/* ---- FORMS ---- */
+
+.form-wrapper{
+    inline-size: 100%;
+    block-size: 100vh;
+    display: grid;
+    place-content: center;
+
+}
+
+.form-container{
+
+    min-block-size: 30dvh;
+    inline-size: min(50rem,90vw);
+    border-radius: 8px;
+    background-color: rgba(128, 70, 27, 0.3);
+    display: grid;
+    grid-template-columns: repeat(1fr,1);
+    gap: 2em;
+    place-items: center;
+    padding-block: 2em;
+    padding-inline: 2em;
+
+}
+
+.field-container{
+
+    inline-size: 80%;
+    block-size: 2em;
+    /* background-color: #1DA1F2; */
+
+}
+
+.input-field{
+
+    inline-size: 100%;
+    block-size: 100%;
+    background-color: transparent;
+    color: var(--white-section-color);
+    border: 1px solid var(--white-section-color);
+    padding-inline: 1em;
+}
+
+.submit-button{
+
+    border: 1px solid var(--white-section-color);
+    color: var(--white-section-color);
+
+}
+
+.submit-button::after{
+    background-color: rgba(128, 70, 27, 0.3);
+}
+
+.submit-button:hover{
+    color: var(--black-section-color)
+}
+
+
+
+/* ---------------- NAV BAR ------------------------ */
 
 header{
 
@@ -125,7 +222,7 @@ nav{
             content: "";
             height: 1px;
             width: 80%;
-            background-color: var(--black-section-color);
+            background-color: var(--white-section-color);
         }
         
         &:hover, &:focus-within{

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <main class="form-wrapper">
+
+        <form class="form-container">
+
+            {% csrf_token %}
+
+            <div class="field-container">
+                {{form.username}}
+            </div>
+
+            <div class="field-container">
+                {{form.email}}
+            </div>
+
+            <div class="field-container">
+                {{form.password1}}
+            </div>
+
+            <div class="field-container">
+                {{form.password2}}
+            </div>
+            
+            <div class="button-container">
+                <button class="btn submit-button">Sign Up</button>
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- {{form.username}}
+    {{form.email}}
+    {{form.password1}}
+    {{form.password2}} -->
+
+
+{% endblock %}

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.views import View, generic
 from django.template.response import TemplateResponse
 from .models import *
+from .forms import *
 from .booking_check.availability import check_availability
 
 # Create your views here.
@@ -52,3 +53,14 @@ class BookSearch(View):
 
 
         return render(request, 'book_rooms.html', context)
+
+
+class UserSignUp(View):
+
+    def get(self, request, *args, **kwargs):
+        signup_form = SignUpForm()
+        context = {
+            'form': signup_form,
+        }
+
+        return render(request, 'authentication/signup.html', context)
