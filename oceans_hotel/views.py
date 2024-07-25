@@ -99,3 +99,9 @@ class UserLogin(View):
             return redirect('home')
         else:
             return redirect(reverse('login'))
+
+class UserLogout(View):
+
+    def get(self, request, *args, **kwargs):
+        logout(request)
+        return redirect('home')

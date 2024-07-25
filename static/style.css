@@ -21,7 +21,9 @@
     --section-block: 30rem;
     --bg-gradient: linear-gradient(to right, #c2b280, #c5b282, #c8b284, #cbb387, #ceb389, #d2b78d, #d7ba92, #dbbe96, #e1c69d, #e8cea4, #eed6ac, #f5deb3);
 }
-
+html{
+    scroll-behavior: smooth;
+}
 body{
     min-height: 100vh;
     font-family: var(--body-font);
@@ -29,6 +31,11 @@ body{
     /* perspective: 800px; */
 }
 
+/* .wrapper{
+
+    scroll-behavior: smooth;
+
+} */
 
 /* ---------------- GLOBAL STYLINGS ------------------------ */
 
@@ -164,11 +171,14 @@ a{
 header{
 
     /* background-color: var(--black-section); */
+    position: sticky;
+    top: 0;
     background-image: var(--bg-gradient);
     display: flex;
     justify-content: space-between;
     block-size: 8rem;
     inline-size: 100dvw;
+    z-index: 99;
     /* background-image: url("../media/waves.gif"); */
     /* overflow: hidden; */
 }
@@ -198,12 +208,6 @@ h1:hover, h1:focus{
     }
 }
 
-
-.wrapper{
-
-    /* min-block-size: calc(100dvh-8rem); */
-
-}
 
 nav{
 
@@ -495,15 +499,17 @@ fieldset{
     align-items: center;
     flex-wrap: wrap;
     padding: 1em;
+    /* background-color: #1877F2; */
 }
 
 #check-in, #check-out{
     font-size: 1.25em;
     margin-inline-start: 0.25em;
     margin-block-start: 1em;
+    color: var(--white-section-color)
 }
 
-.field-container p{
+.date-field-container p{
     opacity: 0;
     color: rgb(241, 111, 111);
     transition: all 0.3s linear;

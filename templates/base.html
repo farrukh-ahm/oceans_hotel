@@ -21,12 +21,22 @@
 
             </label>
             <ul class="menu-items">
-                <li><a href="/">Home</a></li>
-                <li><a href="{% url 'signup' %}">SignUp</a></li>
-                <li><a href="{% url 'login' %}">LogIn</a></li>
-                <li>Explore</li>
-                <li>Book</li>
-                <li>About</li>
+                {% if user.is_authenticated%}
+                    <li><h3>{{request.user}}</h3></li>
+                {% endif %}
+                
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#locations">Locations</a></li>
+                <li><a href="#book">Book</a></li>
+                <li><a href="#contact">Contact</a></li>
+                
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">SignOut</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">LogIn</a></li>
+                    <li><a href="{% url 'signup' %}">SignUp</a></li>
+                {% endif %}
             </ul>
         </nav>
 

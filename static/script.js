@@ -61,12 +61,12 @@ checkOut.addEventListener("change", e=>{
     let outDate = checkOut.value
 
     if(inDate>outDate){
-        document.querySelector(".field-container p").style.opacity = 1;
+        document.querySelector(".date-field-container p").style.opacity = 1;
         document.querySelector(".index-room-search").style.display = "none";
         return
     }
     if (inDate<outDate){
-        document.querySelector(".field-container p").style.opacity = 0;
+        document.querySelector(".date-field-container p").style.opacity = 0;
         document.querySelector(".index-room-search").style.display = "block"
         return
     }
