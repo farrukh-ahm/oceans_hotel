@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.utils.text import slugify
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.views import View, generic
 from django.template.response import TemplateResponse
@@ -64,3 +65,37 @@ class UserSignUp(View):
         }
 
         return render(request, 'authentication/signup.html', context)
+
+    def post(self, request, *args, **kwargs):
+        signup_form = SignUpForm(request.POST)
+
+        if signup_form.is_valid():
+            signup_form.save()
+            return render(request, "authentication/login.html")
+        else:
+            signup_form = SignUpForm()
+            return redirect(reverse('signup'))
+
+
+class UserLogin(View):
+
+    def get(self, request, *args, **kwargs):
+
+        return render(request, 'authentication/login.html')
+
+    def post(self, request, *args, **kwargs):
+        
+        login_form = self.request.POST.dict()
+        username = login_form["username"]
+        password = login_form["password"]
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            # users = User.objects.all()
+            # user_id = get_object_or_404(users, username=username)
+            # print(user_id.id)
+            login(request, user)
+            return redirect('home')
+        else:
+            return redirect(reverse('login'))

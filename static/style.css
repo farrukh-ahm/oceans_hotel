@@ -88,11 +88,17 @@ a{
 
 /* ---- FORMS ---- */
 
+.form-title{
+    color: var(--white-section-color)
+}
+
 .form-wrapper{
     inline-size: 100%;
-    block-size: 100vh;
-    display: grid;
-    place-content: center;
+    min-block-size: 50vh;
+    padding-block: 2.5rem;
+    /* background-color: #1877F2; */
+    /* display: grid;
+    place-content: center; */
 
 }
 
@@ -101,7 +107,9 @@ a{
     min-block-size: 30dvh;
     inline-size: min(50rem,90vw);
     border-radius: 8px;
-    background-color: rgba(128, 70, 27, 0.3);
+    /* background-color: rgba(128, 70, 27, 0.3); */
+    background-image: var(--bg-gradient);
+    margin-inline: auto;
     display: grid;
     grid-template-columns: repeat(1fr,1);
     gap: 2em;
@@ -127,6 +135,11 @@ a{
     color: var(--white-section-color);
     border: 1px solid var(--white-section-color);
     padding-inline: 1em;
+}
+
+.input-field:focus{
+    outline: none;
+    box-shadow: 0 0 2px var(--white-section-color);
 }
 
 .submit-button{
