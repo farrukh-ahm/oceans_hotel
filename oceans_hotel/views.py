@@ -22,7 +22,6 @@ class BookSearch(View):
 
     def get(self, request, *args, **kwargs):
 
-        # r =self.request.GET.keys()
         r = self.request.GET.dict()
         
         check_in_date = r["check_in"]
@@ -46,10 +45,13 @@ class BookSearch(View):
         except IndexError:
             pass
 
+        booking_form = BookRoomForm()
+
         context = {
             "check_in": check_in_date,
             "check_out": check_out_date,
-            "avail_rooms": avail_rooms_list
+            "avail_rooms": avail_rooms_list,
+            'form': booking_form
         }
 
 

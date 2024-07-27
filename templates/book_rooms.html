@@ -2,6 +2,9 @@
 
 {% block content %}
 
+    {{form.check_in}}
+    {{form.check_out}}
+
     {% if avail_rooms %}
         {% for room in avail_rooms %}
             {{room}}

@@ -12,6 +12,14 @@
             {% csrf_token %}
 
             <div class="field-container">
+                {{form.first_name}}
+            </div>
+
+            <div class="field-container">
+                {{form.last_name}}
+            </div>
+
+            <div class="field-container">
                 {{form.username}}
             </div>
 
@@ -31,7 +39,12 @@
                 <button class="btn submit-button">Sign Up</button>
             </div>
 
+            <div class="auth-para">
+                <p>Already have an account? <a href="{% url 'login' %}">LogIn!</a></p>
+            </div>
+
         </form>
+
 
     </main>
 
