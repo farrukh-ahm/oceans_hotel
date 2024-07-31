@@ -4,6 +4,11 @@ from django.contrib.auth.models import User
 from .models import *
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
+
 class SignUpForm(UserCreationForm):
 
     password1 = forms.CharField(
@@ -33,6 +38,6 @@ class BookRoomForm(forms.ModelForm):
         model= Bookings
         fields = ['check_in', 'check_out']
         widgets = {
-            'check_in': forms.DateInput(),
-            'check_out': forms.DateInput(),
+            'check_in': DateInput(),
+            'check_out': DateInput(),
         }

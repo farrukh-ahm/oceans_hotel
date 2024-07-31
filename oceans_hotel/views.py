@@ -46,6 +46,10 @@ class BookSearch(View):
             pass
 
         booking_form = BookRoomForm()
+        booking_form.initial = {
+            'check_in': check_in_date,
+            'check_out': check_out_date,
+            }
 
         context = {
             "check_in": check_in_date,
