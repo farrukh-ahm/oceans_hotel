@@ -28,7 +28,7 @@ class BookSearch(View):
         check_out_date = r["check_out"]
         
         avail_rooms_list = []
-        
+        room_category = list(filter(lambda x: r[x]=="on", r))[0]
         try:
             room_category = list(filter(lambda x: r[x]=="on", r))[0]
             
@@ -55,7 +55,8 @@ class BookSearch(View):
             "check_in": check_in_date,
             "check_out": check_out_date,
             "avail_rooms": avail_rooms_list,
-            'form': booking_form
+            'form': booking_form,
+            'category': room_category
         }
 
 

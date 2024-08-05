@@ -95,3 +95,9 @@ rooms.forEach(room => room.addEventListener("change", e=>{
     }
 
 }))
+
+
+// -------------------- DISABLE THE DATES ON BOOKING PAGE
+
+// let checkDates = document.querySelectorAll(".dis-check")
+

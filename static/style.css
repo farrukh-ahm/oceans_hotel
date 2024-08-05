@@ -106,9 +106,6 @@ hr{
     inline-size: 100%;
     min-block-size: 50vh;
     padding-block: 2.5rem;
-    /* background-color: #1877F2; */
-    /* display: grid;
-    place-content: center; */
 
 }
 
@@ -757,3 +754,88 @@ fieldset{
 
 }
 
+
+/* ---------------- BOOKING ROOM PAGE ------------------------ */
+
+/* .booking-info-wrapper{
+
+    inline-size: 100%;
+    block-size: 80vh;
+    place-content: center;
+
+    
+} */
+.booking-info-main{
+
+    inline-size: min(50rem, 100%);
+    margin-inline: auto;
+    display: grid;
+    grid-template: "form image" 15rem
+                    "form ." 15rem
+                    "form ." 8rem / 2fr 1fr;
+    /* background-color: #1877F2; */
+    background-image: var(--bg-gradient);
+    border: 1px solid black;
+    padding-inline-end: 1.5em;
+
+
+    .booking-form{
+        grid-area: form;
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: repeat(1fr,1);
+        gap: 2em;
+        place-items: center;
+        padding-block: 2em;
+        padding-inline: 1em;
+
+        /* .room-button-container{
+
+            inline-size: 100%;
+            background-color: #080808;
+
+            .btn-book{
+                margin-inline: auto;
+            }
+
+        } */
+    }
+
+    .booking-image{
+        grid-area: image;
+
+        .selected-room{
+            object-fit: cover;
+            object-position: center;
+            inline-size: 100%;
+            block-size: 100%;
+        }
+
+    }
+
+}
+
+@media (max-width: 650px){
+
+    .booking-info-main{
+
+        grid-template: ". image ." 10rem
+                        "form form form" 20rem
+                        "form form form" / 0.5fr 3fr 0.5fr;
+
+    }
+
+    .room-button-container{
+        inline-size: 100%;
+        .btn-book{
+            inline-size: 100%;
+            block-size: 2em;
+        }
+
+    }
+
+    .booking-image{
+        margin-inline: auto;
+    }
+
+}

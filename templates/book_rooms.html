@@ -2,7 +2,82 @@
 
 {% block content %}
 
-    {{form.check_in}}
+    <div class="title-container">
+        <h2 class="form-title">Book Rooms</h2>
+    </div>
+
+
+    <main class="form-wrapper booking-info-main">
+        <form class="booking-form" method="POST" action="">
+
+            {% csrf_token %}
+
+            <div class="field-container">
+                <span>First Name: </span> <span>{{request.user.first_name}}</span>
+            </div>
+
+            <div class="field-container">
+                <span>Last Name: </span> <span>{{request.user.last_name}}</span>
+            </div>
+
+            <div class="field-container">
+                <span>Room Type: </span> <span>{{category}}</span>
+            </div>
+
+            <div class="field-container">
+                {{form.check_in.label}}: {{form.check_in}}
+            </div>
+
+            <div class="field-container">
+                {{form.check_out.label}}: {{form.check_out}}
+            </div>
+
+            <div class="field-container">
+                
+                <label for="room-list">Select a room: </label>
+                <select id="room-list">
+
+                    {% for room in avail_rooms %}
+
+                        <option value="">{{room}}</option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+            
+            <div class="room-button-container">
+                <button class="btn btn-book submit-button">Book</button>
+            </div>
+            
+        </form>
+
+        <div class="booking-image">
+            <img src="../static/images/{{category}}.jfif" alt="" class="selected-room">
+        </div>
+
+    </main>
+<!-- 
+    <form action="" class="index-form" method="GET">
+
+        <fieldset class="dates">
+
+            <div class="date-field-container">
+                <label for="check-in">Check In Date: </label>
+                {{form.check_in}}
+            </div>
+
+            <div class="date-field-container">
+                <label for="check-out">Check Out Date: </label>
+                {{form.check_out}}
+                <p class="invalid-text">Please check the check-out date</p>
+            </div>
+
+        </fieldset>
+    </form> -->
+
+    <!-- {{form.check_in}}
     {{form.check_out}}
 
     {% if avail_rooms %}
@@ -11,6 +86,6 @@
         {% endfor %}
     {% else %}
         <p>No rooms selected</p>
-    {% endif %}
+    {% endif %} -->
 
 {% endblock %}
