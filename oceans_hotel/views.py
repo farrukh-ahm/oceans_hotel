@@ -8,6 +8,7 @@ from django.template.response import TemplateResponse
 from .models import *
 from .forms import *
 from .booking_check.availability import check_availability
+import random
 
 # Create your views here.
 
@@ -20,27 +21,29 @@ class Home(View):
 
 class BookSearch(View):
 
+    avail_rooms_list = []
+
     def get(self, request, *args, **kwargs):
 
         r = self.request.GET.dict()
         
         check_in_date = r["check_in"]
         check_out_date = r["check_out"]
+        self.avail_rooms_list.clear()
         
-        avail_rooms_list = []
         room_category = list(filter(lambda x: r[x]=="on", r))[0]
         try:
-            room_category = list(filter(lambda x: r[x]=="on", r))[0]
+            # room_category = list(filter(lambda x: r[x]=="on", r))[0]
             
             rooms = Rooms.objects.filter(category=room_category)
             for room in rooms:
                 available = check_availability(room, check_in_date, check_out_date)
                 if available:
-                    avail_rooms_list.append(room.room_no)
+                    self.avail_rooms_list.append(room.room_no)
 
 
             print("*"*15)
-            print(avail_rooms_list)
+            print(self.avail_rooms_list)
 
         except IndexError:
             pass
@@ -54,13 +57,35 @@ class BookSearch(View):
         context = {
             "check_in": check_in_date,
             "check_out": check_out_date,
-            "avail_rooms": avail_rooms_list,
+            "avail_rooms": self.avail_rooms_list,
             'form': booking_form,
             'category': room_category
         }
 
 
         return render(request, 'book_rooms.html', context)
+
+    
+    def post(self, request, *args, **kwargs):
+
+        select_room = random.choice(self.avail_rooms_list)
+        queryset = Rooms.objects.get(room_no=select_room)
+        room_form = BookRoomForm(request.POST)
+        print(queryset)
+        # print(self.avail_rooms_list)
+        if room_form.is_valid():
+            room_book = room_form.save(commit=False)
+            room_book.guest = request.user
+            room_book.room_booked = queryset
+            print(room_book)
+            room_book.save()
+
+        else:
+            room_form = BookRoomForm()
+
+        # print(self.avail_rooms_list)
+        # print(room_form)
+        return redirect('home')
 
 
 class UserSignUp(View):

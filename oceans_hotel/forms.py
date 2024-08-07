@@ -36,7 +36,7 @@ class BookRoomForm(forms.ModelForm):
 
     class Meta:
         model= Bookings
-        fields = ['check_in', 'check_out']
+        fields = ['check_in', 'check_out',]
         widgets = {
             'check_in': DateInput(),
             'check_out': DateInput(),

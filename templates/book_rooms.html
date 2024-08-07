@@ -8,7 +8,9 @@
 
 
     <main class="form-wrapper booking-info-main">
-        <form class="booking-form" method="POST" action="">
+
+        {% if avail_rooms|length %}
+        <form class="booking-form" method="POST" action="{% url 'confirmbooking' %}">
 
             {% csrf_token %}
 
@@ -31,21 +33,6 @@
             <div class="field-container">
                 {{form.check_out.label}}: {{form.check_out}}
             </div>
-
-            <div class="field-container">
-                
-                <label for="room-list">Select a room: </label>
-                <select id="room-list">
-
-                    {% for room in avail_rooms %}
-
-                        <option value="">{{room}}</option>
-
-                    {% endfor %}
-
-                </select>
-
-            </div>
             
             <div class="room-button-container">
                 <button class="btn btn-book submit-button">Book</button>
@@ -56,6 +43,11 @@
         <div class="booking-image">
             <img src="../static/images/{{category}}.jfif" alt="" class="selected-room">
         </div>
+
+        {% else %}
+        <h1>NO ROOMS!</h1>
+
+        {% endif %}
 
     </main>
 <!-- 
