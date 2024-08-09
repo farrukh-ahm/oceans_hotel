@@ -28,11 +28,16 @@ class SignUpForm(UserCreationForm):
             'email': forms.EmailInput(attrs={'class': 'input-field', 'placeholder': 'Email', 'required': 'true'}),
             'first_name': forms.TextInput(attrs={'class': 'input-field', 'placeholder': 'First Name', 'required': 'true'}),
             'last_name': forms.TextInput(attrs={'class': 'input-field', 'placeholder': 'Last Name', 'required': 'true'})
-            # 'password1': forms.TextInput(attrs={'class': 'input-field', 'placeholder': 'Password'}),
-            # 'password2': forms.PasswordInput(attrs={'class': 'input-field', 'placeholder': 'Retype Password'}),
         }
 
 class BookRoomForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        
+        self.fields["check_in"].widget.attrs['data-validation'] = "check-in-validation"
+
+        self.fields["check_out"].widget.attrs['data-validation'] = "check-out-validation"
 
     class Meta:
         model= Bookings

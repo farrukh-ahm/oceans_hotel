@@ -6,43 +6,53 @@ const caroPics = document.querySelectorAll(".caro-pic")
 const imageContainer = document.querySelector(".carousel-container")
 let count = 0;
 
-leftSlider.addEventListener("click", e=>{
+if(leftSlider){
 
-    let currentImage = caroPics[count]
-    imageContainer.scrollBy(-currentImage.offsetWidth,0)
-    count--
-    // console.log(count)
-    if (count === 0){
-        leftSlider.style.display = "none"
-    }
+    leftSlider.addEventListener("click", e=>{
+    
+        let currentImage = caroPics[count]
+        imageContainer.scrollBy(-currentImage.offsetWidth,0)
+        count--
+        // console.log(count)
+        if (count === 0){
+            leftSlider.style.display = "none"
+        }
+    
+        if(rightSlider.style.display!=="initial"){
+            rightSlider.style.display = "initial"
+        }
+    
+    })
 
-    if(rightSlider.style.display!=="initial"){
-        rightSlider.style.display = "initial"
-    }
+}
 
-})
+if(rightSlider){
 
-rightSlider.addEventListener("click", e=>{
+    rightSlider.addEventListener("click", e=>{
+    
+        let currentImage = caroPics[count]
+        // console.log(currentImage)
+        imageContainer.scrollBy(currentImage.offsetWidth,0)
+        count++
+        // console.log(count)
+        if (count === 6){
+            rightSlider.style.display = "none"
+        }
+    
+        if(leftSlider.style.display!=="initial"){
+            leftSlider.style.display = "initial"
+        }
+    
+    })
 
-    let currentImage = caroPics[count]
-    // console.log(currentImage)
-    imageContainer.scrollBy(currentImage.offsetWidth,0)
-    count++
-    // console.log(count)
-    if (count === 6){
-        rightSlider.style.display = "none"
-    }
-
-    if(leftSlider.style.display!=="initial"){
-        leftSlider.style.display = "initial"
-    }
-
-})
+}
 
 
 // -------------------- RESTRICTING THE CHECK-IN DATES
-let checkIn = document.querySelector("#check-in");
-let checkOut = document.querySelector("#check-out")
+// let checkIn = document.querySelector("#check-in");
+// let checkOut = document.querySelector("#check-out")
+let checkIn = document.querySelector("[data-validation='check-in-validation']");
+let checkOut = document.querySelector("[data-validation='check-out-validation']")
 
 if(checkIn){
 
@@ -56,21 +66,25 @@ if(checkIn){
     // console.log(outDate)
 }
 
-checkOut.addEventListener("change", e=>{
-    let inDate = checkIn.value
-    let outDate = checkOut.value
+if(checkOut){
 
-    if(inDate>outDate){
-        document.querySelector(".date-field-container p").style.opacity = 1;
-        document.querySelector(".index-room-search").style.display = "none";
-        return
-    }
-    if (inDate<outDate){
-        document.querySelector(".date-field-container p").style.opacity = 0;
-        document.querySelector(".index-room-search").style.display = "block"
-        return
-    }
-})
+    checkOut.addEventListener("change", e=>{
+        let inDate = checkIn.value
+        let outDate = checkOut.value
+    
+        if(inDate>outDate){
+            document.querySelector(".date-field-container p").style.opacity = 1;
+            document.querySelector(".index-room-search").style.display = "none";
+            return
+        }
+        if (inDate<outDate){
+            document.querySelector(".date-field-container p").style.opacity = 0;
+            document.querySelector(".index-room-search").style.display = "block"
+            return
+        }
+    })
+
+}
 
 
 // -------------------- ENSURING ONLY ONE ROOM CATEGORY SELECTION
@@ -97,7 +111,34 @@ rooms.forEach(room => room.addEventListener("change", e=>{
 }))
 
 
-// -------------------- DISABLE THE DATES ON BOOKING PAGE
+// -------------------- BOOKING PAGE ELEMENTS
 
-// let checkDates = document.querySelectorAll(".dis-check")
+let checkDates = document.querySelectorAll(".date-picker input");
+let dateChange = document.querySelectorAll(".date-modal-trigger");
+let dateModal = document.querySelector(".booking-modal");
+let dateModalClose = document.querySelector(".date-modal-close");
 
+if(checkDates){
+    checkDates.forEach(date => {
+        date.style.color = "rgb(128, 70, 27)"
+    })
+}
+
+if (dateChange){
+
+    dateChange.forEach(date => {
+        date.addEventListener("click", ()=>{
+            dateModal.showModal()
+        })
+
+    })
+
+}
+
+if(dateModalClose){
+    dateModalClose.addEventListener("click", ()=>{
+
+        dateModal.close();
+
+    })
+}

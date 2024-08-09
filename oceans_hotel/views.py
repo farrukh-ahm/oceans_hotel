@@ -9,7 +9,7 @@ from .models import *
 from .forms import *
 from .booking_check.availability import check_availability
 import random
-
+import datetime
 # Create your views here.
 
 class Home(View):
@@ -55,8 +55,8 @@ class BookSearch(View):
             }
 
         context = {
-            "check_in": check_in_date,
-            "check_out": check_out_date,
+            "check_in": datetime.datetime.strptime(check_in_date, "%Y-%m-%d"),
+            "check_out": datetime.datetime.strptime(check_out_date, "%Y-%m-%d"),
             "avail_rooms": self.avail_rooms_list,
             'form': booking_form,
             'category': room_category
@@ -71,7 +71,7 @@ class BookSearch(View):
         select_room = random.choice(self.avail_rooms_list)
         queryset = Rooms.objects.get(room_no=select_room)
         room_form = BookRoomForm(request.POST)
-        print(queryset)
+        print(room_form)
         # print(self.avail_rooms_list)
         if room_form.is_valid():
             room_book = room_form.save(commit=False)

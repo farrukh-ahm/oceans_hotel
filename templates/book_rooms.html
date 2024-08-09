@@ -27,11 +27,13 @@
             </div>
 
             <div class="field-container">
-                {{form.check_in.label}}: {{form.check_in}}
+                <span>Check In:</span> <span>{{check_in|date:"d N y"}}</span>
+                <p class="date-modal-trigger"><small>Change Date</small></p>
             </div>
 
             <div class="field-container">
-                {{form.check_out.label}}: {{form.check_out}}
+                <span>Check Out:</span> <span>{{check_out|date:"d N y"}}</span>
+                <p class="date-modal-trigger"><small>Change Date</small></p>
             </div>
             
             <div class="room-button-container">
@@ -50,34 +52,76 @@
         {% endif %}
 
     </main>
-<!-- 
-    <form action="" class="index-form" method="GET">
 
-        <fieldset class="dates">
+    <dialog class="booking-modal">
 
-            <div class="date-field-container">
-                <label for="check-in">Check In Date: </label>
-                {{form.check_in}}
+        <form class="modal-container" method="GET" action="{% url 'book_search' %}">
+
+            <p>Choose a date and room:</p>
+
+            <fieldset class="dates">
+
+                <div class="date-field-container date-picker check-in-div">
+                    {{form.check_in.label}}: {{form.check_in}}
+                </div>
+    
+                <div class="date-field-container date-picker check-out-div">
+                    {{form.check_out.label}}: {{form.check_out}}
+                    <p class="invalid-text">Please check the check-out date</p>
+                </div>
+
+            </fieldset>
+
+            <!-- <div class="field-container date-picker">
+                {{form.check_in.label}}: {{form.check_in}}
             </div>
 
-            <div class="date-field-container">
-                <label for="check-out">Check Out Date: </label>
-                {{form.check_out}}
-                <p class="invalid-text">Please check the check-out date</p>
-            </div>
+            <div class="field-container date-picker">
+                {{form.check_out.label}}: {{form.check_out}}
+            </div> -->
 
-        </fieldset>
-    </form> -->
+            <fieldset class="room-cat">
 
-    <!-- {{form.check_in}}
-    {{form.check_out}}
+                <label for="single" class="cat-container">
+                    <input type="checkbox" class="radios" data-value="single" id="single" name="SIN">
+                    <img src="../static/images/SIN.jfif" alt="single-room">
+                    <p>Single Room</p>
+                </label>
 
-    {% if avail_rooms %}
-        {% for room in avail_rooms %}
-            {{room}}
-        {% endfor %}
-    {% else %}
-        <p>No rooms selected</p>
-    {% endif %} -->
+                <label for="double" class="cat-container">
+                    <input type="checkbox" class="radios" data-value="double" id="double" name="DUO">
+                    <img src="../static/images/DUO.jfif" alt="double-room">
+                    <p>Double Room</p>
+                </label>
+
+                <label for="triple" class="cat-container">
+                    <input type="checkbox" class="radios" data-value="triple" id="triple" name="TRI">
+                    <img src="../static/images/TRI.jfif" alt="triple-room">
+                    <p>Triple Room</p>
+                </label>
+
+                <label for="deluxe" class="cat-container">
+                    <input type="checkbox" class="radios" data-value="deluxe" id="deluxe" name="DLX">
+                    <img src="../static/images/DLX.jfif" alt="deluxe-room">
+                    <p>Deluxe Room</p>
+                </label>
+
+                <label for="suite" class="cat-container">
+                    <input type="checkbox" class="radios" data-value="suite" id="suite" name="SUT">
+                    <img src="../static/images/SUT.jfif" alt="suite">
+                    <p>Suite</p>
+                </label>
+
+            </fieldset>
+
+            {% csrf_token %}
+            <button class="index-room-search modal-action">Search</button>
+
+        </form>
+
+        <button class="date-modal-close modal-close">Close</button>
+        
+    </dialog>
+
 
 {% endblock %}
