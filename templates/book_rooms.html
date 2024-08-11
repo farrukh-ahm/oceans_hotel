@@ -7,51 +7,68 @@
     </div>
 
 
-    <main class="form-wrapper booking-info-main">
+    {% if avail_rooms|length %}
+        <main class="form-wrapper booking-info-main">
 
-        {% if avail_rooms|length %}
-        <form class="booking-form" method="POST" action="{% url 'confirmbooking' %}">
+            <form class="booking-form" method="POST" action="{% url 'confirmbooking' %}">
 
-            {% csrf_token %}
+                {% csrf_token %}
 
-            <div class="field-container">
-                <span>First Name: </span> <span>{{request.user.first_name}}</span>
+                <div class="field-container">
+                    <span>First Name: </span> <span>{{request.user.first_name}}</span>
+                </div>
+
+                <div class="field-container">
+                    <span>Last Name: </span> <span>{{request.user.last_name}}</span>
+                </div>
+
+                <div class="field-container">
+                    <span>Room Type: </span> <span>{{category}}</span>
+                </div>
+
+                <div class="field-container">
+                    <span>Check In:</span> <span>{{check_in|date:"d N y"}}</span>
+                    <p class="date-modal-trigger"><small>Change Date</small></p>
+                </div>
+
+                <div class="field-container">
+                    <span>Check Out:</span> <span>{{check_out|date:"d N y"}}</span>
+                    <p class="date-modal-trigger"><small>Change Date</small></p>
+                </div>
+                
+                <div class="room-button-container">
+                    <button class="btn btn-book submit-button">Book</button>
+                </div>
+                
+            </form>
+
+            <div class="booking-image">
+                <img src="../static/images/{{category}}.jfif" alt="" class="selected-room">
+                <small>{{avail_rooms|length}} rooms available.</small>
             </div>
 
-            <div class="field-container">
-                <span>Last Name: </span> <span>{{request.user.last_name}}</span>
-            </div>
+        </main>
 
-            <div class="field-container">
-                <span>Room Type: </span> <span>{{category}}</span>
-            </div>
+    {% else %}
 
-            <div class="field-container">
-                <span>Check In:</span> <span>{{check_in|date:"d N y"}}</span>
-                <p class="date-modal-trigger"><small>Change Date</small></p>
-            </div>
-
-            <div class="field-container">
-                <span>Check Out:</span> <span>{{check_out|date:"d N y"}}</span>
-                <p class="date-modal-trigger"><small>Change Date</small></p>
-            </div>
+        {% if category == "" %}
             
-            <div class="room-button-container">
-                <button class="btn btn-book submit-button">Book</button>
-            </div>
-            
-        </form>
-
-        <div class="booking-image">
-            <img src="../static/images/{{category}}.jfif" alt="" class="selected-room">
+        <div class="general-message-container">
+            <p>No Room Category Selected.</p>
+            <p class="date-modal-trigger">Please select a category here.</p>
         </div>
-
+        
         {% else %}
-        <h1>NO ROOMS!</h1>
+
+        <div class="general-message-container">
+            <p>No Rooms Available at Selected Dates.</p>
+            <p class="date-modal-trigger">You Can Change Dates Here.</p>
+        </div>
 
         {% endif %}
 
-    </main>
+    {% endif %}
+
 
     <dialog class="booking-modal">
 
@@ -71,14 +88,6 @@
                 </div>
 
             </fieldset>
-
-            <!-- <div class="field-container date-picker">
-                {{form.check_in.label}}: {{form.check_in}}
-            </div>
-
-            <div class="field-container date-picker">
-                {{form.check_out.label}}: {{form.check_out}}
-            </div> -->
 
             <fieldset class="room-cat">
 

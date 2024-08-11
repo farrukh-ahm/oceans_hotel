@@ -31,10 +31,9 @@ class BookSearch(View):
         check_out_date = r["check_out"]
         self.avail_rooms_list.clear()
         
-        room_category = list(filter(lambda x: r[x]=="on", r))[0]
         try:
-            # room_category = list(filter(lambda x: r[x]=="on", r))[0]
-            
+
+            room_category = list(filter(lambda x: r[x]=="on", r))[0]
             rooms = Rooms.objects.filter(category=room_category)
             for room in rooms:
                 available = check_availability(room, check_in_date, check_out_date)
@@ -46,6 +45,8 @@ class BookSearch(View):
             print(self.avail_rooms_list)
 
         except IndexError:
+
+            room_category = ""
             pass
 
         booking_form = BookRoomForm()

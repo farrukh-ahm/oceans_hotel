@@ -23,11 +23,12 @@
 }
 html{
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 body{
     min-height: 100vh;
     font-family: var(--body-font);
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     /* perspective: 800px; */
 }
 
@@ -796,11 +797,11 @@ fieldset{
                 color: var(--white-section-color)
             }
 
-            .date-modal-trigger{
+            /* .date-modal-trigger{
                 color: var(--white-section);
                 text-decoration: underline;
                 cursor: pointer;
-            }
+            } */
 
         }
     }
@@ -815,7 +816,35 @@ fieldset{
             block-size: 100%;
         }
 
+        small{
+            display: block;
+            text-align: center;
+            color: crimson;
+            /* margin-inline: auto; */
+            /* background-color: #1DA1F2; */
+        }
+
     }
+
+}
+
+.date-modal-trigger{
+    color: var(--white-section);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.general-message-container{
+
+    inline-size: min(40rem, 100%);
+    margin-inline: auto;
+    min-block-size: 20rem;
+    align-content: center;
+    padding-inline: 2em;
+    text-align: center;
+    color: var(--white-section-color);
+    background-image: var(--bg-gradient);
+    /* text-align: center; */
 
 }
 
