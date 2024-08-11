@@ -22,7 +22,7 @@
             </label>
             <ul class="menu-items">
                 {% if user.is_authenticated%}
-                    <li><h3>{{request.user.first_name}}</h3></li>
+                    <li><h3><a href="{% url 'profile' %}">{{request.user.first_name}}</a></h3></li>
                     <hr>
                 {% endif %}
                 

@@ -7,5 +7,6 @@ urlpatterns = [
     path('signup', views.UserSignUp.as_view(), name='signup'),
     path('login', views.UserLogin.as_view(), name='login'),
     path('logout', views.UserLogout.as_view(), name='logout'),
-    path('confirm-booking/', views.BookSearch.as_view(), name='confirmbooking'),
+    path('confirm-booking', views.BookSearch.as_view(), name='confirmbooking'),
+    path('profile', views.ProfileView.as_view(), name='profile'),
 ]

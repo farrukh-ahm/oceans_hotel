@@ -138,3 +138,15 @@ class UserLogout(View):
     def get(self, request, *args, **kwargs):
         logout(request)
         return redirect('home')
+
+class ProfileView(View):
+
+    def get(self, request, *args, **kwargs):
+        queryset = User.objects.all()
+        user_info = get_object_or_404(queryset, username=request.user)
+
+        context = {
+            "user": user_info
+        }
+
+        return render(request, 'profile.html', context)

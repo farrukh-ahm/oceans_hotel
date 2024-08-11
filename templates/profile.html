@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="title-container">
+    <h2 class="form-title">Profile</h2>
+</div>
+
+<main class="profile-wrapper">
+
+    <section class="profile-container">
+        {{user.first_name}}
+        {{user.last_name}}
+        {{user.email}}
+        {{user.date_joined|date:"d N y"}}
+    </section>
+
+</main>
+
+
+{% endblock %}
