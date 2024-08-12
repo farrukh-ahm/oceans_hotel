@@ -36,12 +36,19 @@ class BookRoomForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         
         self.fields["check_in"].widget.attrs['data-validation'] = "check-in-validation"
+        self.fields["check_in"].widget.attrs['readonly'] = True
+        self.fields["check_in"].widget.attrs['class'] = "prevent-change"
 
         self.fields["check_out"].widget.attrs['data-validation'] = "check-out-validation"
+        self.fields["check_out"].widget.attrs['readonly'] = True
+        self.fields["check_out"].widget.attrs['class'] = "prevent-change"
+
+        self.fields["total_cost"].widget.attrs['readonly'] = True
+        self.fields["total_cost"].widget.attrs['class'] = "prevent-change"
 
     class Meta:
         model= Bookings
-        fields = ['check_in', 'check_out',]
+        fields = ['check_in', 'check_out', 'total_cost']
         widgets = {
             'check_in': DateInput(),
             'check_out': DateInput(),

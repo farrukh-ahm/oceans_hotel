@@ -14,6 +14,7 @@ ROOM_CAT = (
 class Rooms(models.Model):
     category = models.CharField(max_length=3, choices=ROOM_CAT, default="SIN")
     room_no = models.IntegerField(unique=True)
+    price = models.IntegerField(default=0)
 
     class Meta:
         ordering = ['room_no']
@@ -27,6 +28,7 @@ class Bookings(models.Model):
     room_booked = models.ForeignKey(Rooms, on_delete=models.CASCADE, related_name="room")
     check_in = models.DateField()
     check_out = models.DateField()
+    total_cost = models.IntegerField(default=0)
 
     class Meta:
         ordering = ['check_in']

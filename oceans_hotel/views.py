@@ -30,7 +30,9 @@ class BookSearch(View):
         check_in_date = r["check_in"]
         check_out_date = r["check_out"]
         self.avail_rooms_list.clear()
-        
+        total_price = 0
+
+        # Finding all available rooms in the selected category
         try:
 
             room_category = list(filter(lambda x: r[x]=="on", r))[0]
@@ -40,19 +42,22 @@ class BookSearch(View):
                 if available:
                     self.avail_rooms_list.append(room.room_no)
 
-
-            print("*"*15)
-            print(self.avail_rooms_list)
+            # Total price based on selected category and number of days
+            room_price = rooms[0].price
+            days_spent = abs((datetime.datetime.strptime(check_out_date, "%Y-%m-%d") - datetime.datetime.strptime(check_in_date, "%Y-%m-%d")).days)
+            total_price = room_price * days_spent
+            print(total_price)
 
         except IndexError:
 
             room_category = ""
-            pass
-
+        
+        # Assigning the form and initial values
         booking_form = BookRoomForm()
         booking_form.initial = {
             'check_in': check_in_date,
             'check_out': check_out_date,
+            'total_cost': total_price,
             }
 
         context = {
@@ -60,7 +65,8 @@ class BookSearch(View):
             "check_out": datetime.datetime.strptime(check_out_date, "%Y-%m-%d"),
             "avail_rooms": self.avail_rooms_list,
             'form': booking_form,
-            'category': room_category
+            'category': room_category,
+            'total_cost': total_price
         }
 
 
@@ -72,7 +78,7 @@ class BookSearch(View):
         select_room = random.choice(self.avail_rooms_list)
         queryset = Rooms.objects.get(room_no=select_room)
         room_form = BookRoomForm(request.POST)
-        print(room_form)
+        # print(room_form)
         # print(self.avail_rooms_list)
         if room_form.is_valid():
             room_book = room_form.save(commit=False)
@@ -82,6 +88,7 @@ class BookSearch(View):
             room_book.save()
 
         else:
+            print(room_form.errors)
             room_form = BookRoomForm()
 
         # print(self.avail_rooms_list)

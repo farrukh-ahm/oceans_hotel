@@ -97,6 +97,10 @@ hr{
     color: var(--black-section-color)
 }
 
+.hidden{
+    display: none;
+}
+
 /* ---- FORMS ---- */
 
 .form-title{

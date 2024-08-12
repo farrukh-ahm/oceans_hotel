@@ -35,8 +35,15 @@
                     <span>Check Out:</span> <span>{{check_out|date:"d N y"}}</span>
                     <p class="date-modal-trigger"><small>Change Date</small></p>
                 </div>
+
+                <div class="field-container">
+                    <span>Total Cost: </span> <span>€{{total_cost}}</span>
+                </div>
                 
                 <div class="room-button-container">
+                    <div class="hidden">{{form.check_in}}</div>
+                    <div class="hidden">{{form.check_out}}</div>
+                    <div class="hidden">{{form.total_cost}}</div>
                     <button class="btn btn-book submit-button">Book</button>
                 </div>
                 
