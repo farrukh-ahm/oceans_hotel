@@ -142,3 +142,12 @@ if(dateModalClose){
 
     })
 }
+
+
+const bookingToggle = document.querySelector(".test-it")
+const toggleButton = document.querySelector(".toggle-bookings")
+
+toggleButton.addEventListener("click", ()=>{
+    // bookingToggle.classList.toggle("room-sections-positions")
+    bookingToggle.classList.toggle("room-sections-flex")
+})

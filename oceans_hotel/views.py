@@ -8,6 +8,7 @@ from django.template.response import TemplateResponse
 from .models import *
 from .forms import *
 from .booking_check.availability import check_availability
+from .booking_check.upcoming_bookings import check_bookings
 import random
 import datetime
 # Create your views here.
@@ -152,8 +153,17 @@ class ProfileView(View):
         queryset = User.objects.all()
         user_info = get_object_or_404(queryset, username=request.user)
 
+        room_queryset = Bookings.objects.filter(guest=request.user)
+        rooms = []
+
+        for room in room_queryset:
+            current = check_bookings(room.check_out)
+            if current:
+                rooms.append(room)
+
         context = {
-            "user": user_info
+            "user": user_info,
+            "room_list": rooms
         }
 
         return render(request, 'profile.html', context)

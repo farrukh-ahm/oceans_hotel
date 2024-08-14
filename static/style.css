@@ -957,3 +957,72 @@ dialog{
 /* dialog::backdrop{
     background-color: rgba(0,0,0,0.8);
 } */
+
+/* ---------------- PROFILE PAGE ------------------------ */
+
+.profile-wrapper{
+
+    inline-size: 100vw;
+    min-block-size: 35rem;
+    align-content: center;
+    /* background-color: #1877F2; */
+
+    .profile-container{
+        inline-size: min(30em, 100%);
+        min-block-size: 15em;
+        margin-inline: auto;
+        background-image: var(--bg-gradient);
+        padding: 2em;
+        color: var(--white-section-color);
+        font-size: 1.15em;
+
+        .profile-field{
+            margin-block-end: 1.25em;
+        }
+
+        .toggle-bookings{
+            font-size: 1em;
+            text-decoration: underline;
+            color: var(--black-section-color);
+            cursor: pointer;
+        }
+    }
+
+    .room-sections-positions{
+
+        /* position: relative; */
+        margin-inline: auto;
+        inline-size: min(30em, 100%);
+        max-block-size: 3.5em;
+        overflow: hidden;
+        opacity: 0;
+
+        .room-container{
+            inline-size: min(30em, 100%);
+            min-block-size: 1em;
+            /* margin-inline: auto; */
+            background-image: var(--bg-gradient);
+            padding: 0.5em;
+            color: var(--white-section-color);
+            border-radius: 5px;
+            margin-block: 1em;
+            text-align: center;
+        }
+    }
+    
+    .room-sections-flex{
+        animation: bookings 1s ease-in forwards;
+    }
+
+}
+
+@keyframes bookings {
+    0%{
+        opacity: 0;
+        max-block-size: 3.5em;
+    }
+    100%{
+        opacity: 1;
+        max-block-size: 100vh;
+    }
+}

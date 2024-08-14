@@ -9,11 +9,41 @@
 <main class="profile-wrapper">
 
     <section class="profile-container">
-        {{user.first_name}}
-        {{user.last_name}}
-        {{user.email}}
-        {{user.date_joined|date:"d N y"}}
+
+        <div class="field-container profile-field">
+            <span>First Name: </span><span>{{user.first_name}}</span>
+        </div>
+
+        <div class="field-container profile-field">
+            <span>Last Name: </span><span>{{user.last_name}}</span>
+        </div>
+
+        <div class="field-container profile-field">
+            <span>Email: </span><span>{{user.email}}</span>
+        </div>
+
+        <div class="field-container profile-field">
+            <span>Joined: </span><span>{{user.date_joined|date:"d N y"}}</span>
+        </div>
+
+        {% if room_list|length %}
+            <span class="toggle-bookings">Check Bookings</span>
+        {% endif %}
+
     </section>
+
+    <div class="room-sections-positions test-it">
+
+        {% for room in room_list %}
+            <section class="room-container position-based">
+                <span>{{room.room_booked.get_category_display}} | </span>
+                <span>{{room.check_in}} | </span>
+                <span>{{room.check_out}}</span>
+            </section>
+        {% endfor %}
+
+    </div>
+    
 
 </main>
 
