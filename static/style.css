@@ -577,6 +577,8 @@ fieldset{
     7px 7px 10px -5px transparent, 
     0 0 5px 0px rgba(255,255,255,0),
     0 55px 35px -20px rgba(0, 0, 0, 0.5);
+
+    /* padding-block-end: 0.25em; */
 }
 
 /* .cat-container:has(.radios:checked) + .cat-container{
@@ -652,25 +654,28 @@ fieldset{
     transform-origin: center;
     position: relative;
     transform: perspective(900px);
+    transition: all 1s linear;
+    position: relative;
+    block-size: 15em;
+    aspect-ratio: 3/4;
+    cursor: pointer;
 }
 
-.perspective-box:hover .loc-card{
-    transform: rotateY(70deg)
-}
 
 .loc-card{
 
-    block-size: 15em;
-    aspect-ratio: 3/4;
-    position: relative;
+    /* block-size: 100%;
+    inline-size: 100%; */
+    position: absolute;
+    inset: 0;
     transform-style: preserve-3d;
-    transform: translateZ(20%);
-    transition: all 0.5s linear;
+    transform: translateZ(20px);
+    /* transition: all 0.5s linear; */
     /* background-color: black; */
 
     img{
         position: absolute;
-        inset: 1;
+        inset: 0;
         inline-size: 100%;
         block-size: 100%;
         object-fit: cover;
@@ -699,6 +704,51 @@ fieldset{
         transform: rotateY(90deg);
     } */
 
+}
+
+.loc-detail{
+
+    position: absolute;
+    inset: 0;
+    /* top: 0;
+    left: 0;
+    inline-size: 100%;
+    block-size: 100%; */
+    transform-style: preserve-3d;
+    transform: rotateY(180deg) translateZ(20px);
+    /* background-color: rgba(128, 70, 27, 0.5);
+    backdrop-filter: blur(20px);
+    color: var(--black-section-color);
+    text-align: center;
+    place-content: center;
+    padding: 0.25em; */
+    border-radius: 5px;
+    isolation: isolate;
+
+    p{
+        inline-size: 100%;
+        block-size: 100%;
+        background-color: rgba(128, 70, 27, 0.5);
+        /* backdrop-filter: blur(20px); */
+        color: var(--black-section-color);
+        text-align: center;
+        place-content: center;
+        padding: 0.25em;
+        position: relative;
+
+        &::before{
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(128, 70, 27, 0.5);
+            filter: blur(5px);
+            z-index: -1;
+        }
+    }
+}
+
+.rotate{
+    transform: rotateY(180deg);
 }
 
 
@@ -975,6 +1025,7 @@ dialog{
         padding: 2em;
         color: var(--white-section-color);
         font-size: 1.15em;
+        border-radius: 5px;
 
         .profile-field{
             margin-block-end: 1.25em;

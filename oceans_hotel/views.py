@@ -156,10 +156,11 @@ class ProfileView(View):
         room_queryset = Bookings.objects.filter(guest=request.user)
         rooms = []
 
-        for room in room_queryset:
-            current = check_bookings(room.check_out)
-            if current:
-                rooms.append(room)
+        if room_queryset:
+            for room in room_queryset:
+                current = check_bookings(room.check_out)
+                if current:
+                    rooms.append(room)
 
         context = {
             "user": user_info,

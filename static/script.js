@@ -147,7 +147,18 @@ if(dateModalClose){
 const bookingToggle = document.querySelector(".test-it")
 const toggleButton = document.querySelector(".toggle-bookings")
 
-toggleButton.addEventListener("click", ()=>{
-    // bookingToggle.classList.toggle("room-sections-positions")
-    bookingToggle.classList.toggle("room-sections-flex")
+if(toggleButton){
+    toggleButton.addEventListener("click", ()=>{
+        // bookingToggle.classList.toggle("room-sections-positions")
+        bookingToggle.classList.toggle("room-sections-flex")
+    })
+}
+
+
+let locationCard = document.querySelectorAll(".perspective-box");
+
+locationCard.forEach(card => {
+    card.addEventListener("click", ()=>{
+        card.classList.toggle("rotate")
+    })
 })
