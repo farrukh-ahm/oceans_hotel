@@ -21,22 +21,53 @@
     --section-block: 30rem;
     --bg-gradient: linear-gradient(to right, #c2b280, #c5b282, #c8b284, #cbb387, #ceb389, #d2b78d, #d7ba92, #dbbe96, #e1c69d, #e8cea4, #eed6ac, #f5deb3);
 }
+
 html{
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
+
 body{
     min-height: 100vh;
     font-family: var(--body-font);
-    /* overflow-x: hidden; */
-    /* perspective: 800px; */
 }
 
-/* .wrapper{
+.message-container{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    min-inline-size: 4em;
+    min-block-size: 2.5em;
+    animation: message-app 5s linear forwards;
+    
+    p{
+        text-align: center;
+        padding-inline: 0.5em;
+        padding-block: 0.25em 
+    }
+}
 
-    scroll-behavior: smooth;
+.success{
+    background-color: rgba(144, 238, 144, 0.5);
+    backdrop-filter: blur(8px);
+}
 
-} */
+.warning{
+    background-color: rgba(220, 20, 60, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+@keyframes message-app {
+    0%{
+        opacity: 1
+    }
+
+    100%{
+        opacity: 0
+    }
+}
 
 /* ---------------- GLOBAL STYLINGS ------------------------ */
 

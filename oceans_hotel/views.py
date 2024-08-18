@@ -85,16 +85,18 @@ class BookSearch(View):
             room_book = room_form.save(commit=False)
             room_book.guest = request.user
             room_book.room_booked = queryset
-            print(room_book)
+            
             room_book.save()
 
+            messages.success(request, 'Room Booked!')
+            return redirect('profile')
+
         else:
-            print(room_form.errors)
+            # print(room_form.errors)
             room_form = BookRoomForm()
 
-        # print(self.avail_rooms_list)
-        # print(room_form)
-        return redirect('home')
+            messages.warning(request, room_form.errors)
+            return redirect(reverse('book_search'))
 
 
 class UserSignUp(View):
@@ -112,9 +114,12 @@ class UserSignUp(View):
 
         if signup_form.is_valid():
             signup_form.save()
+            messages.success(request, 'Successfully Signed Up!')
             return render(request, "authentication/login.html")
         else:
             signup_form = SignUpForm()
+
+            messages.warning(request, signup_form.errors)
             return redirect(reverse('signup'))
 
 
@@ -133,19 +138,24 @@ class UserLogin(View):
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            # users = User.objects.all()
-            # user_id = get_object_or_404(users, username=username)
-            # print(user_id.id)
             login(request, user)
+
+            messages.success(request, f"Welcome {request.user}")
             return redirect('home')
         else:
+
+            messages.warning(request, "Log in error!")
             return redirect(reverse('login'))
+
 
 class UserLogout(View):
 
     def get(self, request, *args, **kwargs):
         logout(request)
+
+        messages.success(request, "You've logged out.")
         return redirect('home')
+
 
 class ProfileView(View):
 
