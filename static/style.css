@@ -586,6 +586,7 @@ fieldset{
     align-items: center;
     transition: all 0.2s linear;
     cursor: pointer;
+    padding-block-end: 1em;
 
 }
 
