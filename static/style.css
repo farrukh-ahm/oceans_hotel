@@ -1047,6 +1047,7 @@ dialog{
     inline-size: 100vw;
     min-block-size: 35rem;
     align-content: center;
+    isolation: isolate;
     /* background-color: #1877F2; */
 
     .profile-container{
@@ -1076,9 +1077,9 @@ dialog{
         /* position: relative; */
         margin-inline: auto;
         inline-size: min(30em, 100%);
-        max-block-size: 3.5em;
+        min-block-size: 3.5em;
         overflow: hidden;
-        opacity: 0;
+        /* opacity: 0; */
 
         .room-container{
             inline-size: min(30em, 100%);
@@ -1090,12 +1091,20 @@ dialog{
             border-radius: 5px;
             margin-block: 1em;
             text-align: center;
+            /* opacity: 0; */
+            /* transform: translateY(-100%); */
+            transition: all 0.5s ease-in;
+        }
+
+        .room-container-appear{
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
     }
     
-    .room-sections-flex{
+    /* .room-sections-flex{
         animation: bookings 1s ease-in forwards;
-    }
+    } */
 
 }
 

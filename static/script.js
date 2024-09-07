@@ -48,6 +48,16 @@ if(rightSlider){
 }
 
 
+// -------------------- LOCATION CARD ROTATION
+let locationCard = document.querySelectorAll(".perspective-box");
+
+locationCard.forEach(card => {
+    card.addEventListener("click", ()=>{
+        card.classList.toggle("rotate")
+    })
+})
+
+
 // -------------------- RESTRICTING THE CHECK-IN DATES
 // let checkIn = document.querySelector("#check-in");
 // let checkOut = document.querySelector("#check-out")
@@ -144,21 +154,35 @@ if(dateModalClose){
 }
 
 
+// -------------------- BOOKING DISPLAY ON PROFILE
 const bookingToggle = document.querySelector(".test-it")
 const toggleButton = document.querySelector(".toggle-bookings")
+const roomContainer = document.querySelectorAll(".room-container")
+
+if(roomContainer){
+    let translate = 1
+    roomContainer.forEach(room => {
+        room.style.transform = `translateY(-${translate*150}%)`
+        room.style.zIndex = `-${translate}`
+        translate++
+    })
+}
 
 if(toggleButton){
     toggleButton.addEventListener("click", ()=>{
         // bookingToggle.classList.toggle("room-sections-positions")
-        bookingToggle.classList.toggle("room-sections-flex")
+        // bookingToggle.classList.toggle("room-sections-flex")
+        roomContainer.forEach(room => {
+            room.classList.toggle("room-container-appear")
+        })
     })
 }
 
 
-let locationCard = document.querySelectorAll(".perspective-box");
+// let locationCard = document.querySelectorAll(".perspective-box");
 
-locationCard.forEach(card => {
-    card.addEventListener("click", ()=>{
-        card.classList.toggle("rotate")
-    })
-})
+// locationCard.forEach(card => {
+//     card.addEventListener("click", ()=>{
+//         card.classList.toggle("rotate")
+//     })
+// })
