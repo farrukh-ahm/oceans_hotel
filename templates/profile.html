@@ -34,13 +34,20 @@
 
     </section>
 
-    <div class="room-sections-positions test-it">
+    <div class="room-sections-positions">
 
         {% for room in room_list %}
-            <section class="room-container position-based">
+            <section class="room-container" data-id="{{room.id}}">
                 <span>{{room.room_booked.get_category_display}} | </span>
                 <span>{{room.check_in}} | </span>
-                <span>{{room.check_out}}</span>
+                <span>{{room.check_out}} | </span>
+                <span class="detail" data-id="{{room.id}}"><small>Details</small></span>
+                <div class="profile-book-detail" data-id="{{room.id}}">
+                    <p>Booking Id: {{room.id}}</p>
+                    <p>Room No: {{room.room_booked.room_no}}</p>
+                    <p>Check In: {{room.check_in}}</p>
+                    <p>Check Out: {{room.check_out}}</p>
+                </div>
             </section>
         {% endfor %}
 

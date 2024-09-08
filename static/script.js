@@ -158,6 +158,8 @@ if(dateModalClose){
 const bookingToggle = document.querySelector(".test-it")
 const toggleButton = document.querySelector(".toggle-bookings")
 const roomContainer = document.querySelectorAll(".room-container")
+const detailDisplay = document.querySelectorAll(".detail")
+const detailTab = document.querySelectorAll(".profile-book-detail")
 
 if(roomContainer){
     let translate = 1
@@ -176,6 +178,25 @@ if(toggleButton){
             room.classList.toggle("room-container-appear")
         })
     })
+
+if(detailDisplay){
+
+    detailDisplay.forEach(detail => {
+        
+        detail.addEventListener("click", (e)=>{
+
+            let bookID = detail.getAttribute("data-id")
+            let sectionExpand = document.querySelector(`section[data-id='${bookID}']`)
+            let sectionDetail = document.querySelector(`div[data-id='${bookID}']`)
+            console.log(sectionExpand)
+            sectionExpand.classList.toggle("section-expand")
+            sectionDetail.classList.toggle("section-detail-transform")
+
+        })
+
+    })
+}
+
 }
 
 
