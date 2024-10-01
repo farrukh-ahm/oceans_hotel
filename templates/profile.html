@@ -47,14 +47,29 @@
                     <p>Room No: {{room.room_booked.room_no}}</p>
                     <p>Check In: {{room.check_in}}</p>
                     <p>Check Out: {{room.check_out}}</p>
+                    <p>Cost: {{room.total_cost}}</p>
+                    <button class="cancel-book-btn" data-booking="{{room.id}}">Cancel Booking</button>
                 </div>
             </section>
         {% endfor %}
 
-    </div>
-    
+    </div>    
 
 </main>
+
+<dialog class="cancel-book-modal">
+    
+    <div class="modaltitle">
+        <h3>Are you sure you want to cancel this booking?</h3>
+    </div>
+    <div class="close-modal-container">
+        <button class="close-cancel-modal">Abort</button>
+    </div>
+    <form action="">
+        <button>Cancel Booking</button>
+    </form>
+
+</dialog>
 
 
 {% endblock %}

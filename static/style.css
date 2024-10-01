@@ -174,9 +174,9 @@ hr{
 
     inline-size: 100%;
     block-size: 100%;
-    background-color: transparent;
+    background-color: #fff;
     color: var(--white-section-color);
-    border: 1px solid var(--white-section-color);
+    border: 1px solid #fff;
     padding-inline: 1em;
 }
 
@@ -960,7 +960,7 @@ fieldset{
 }
 
 
-dialog{
+.booking-modal{
 
     position: absolute;
     top: 50%;
@@ -1100,9 +1100,19 @@ dialog{
             }
 
             .profile-book-detail{
-                transform: translateX(-200%);
+                transform: translateX(-10%);
                 opacity: 0;
                 transition: all 0.3s ease-in;
+                padding-block-start: 1em;
+                
+                .cancel-book-btn{
+                    padding-inline:1em;
+                    padding-block: 0.5em;
+                    margin-block: 1em;
+                    border: 1px solid var(--white-section-color);
+                    background-color: transparent;
+                }
+
             }
 
             .section-detail-transform{
@@ -1118,7 +1128,7 @@ dialog{
         }
 
         .section-expand{
-            max-block-size: 10em !important;
+            max-block-size: 12.5em !important;
         }
     }
     
@@ -1136,5 +1146,21 @@ dialog{
     100%{
         opacity: 1;
         max-block-size: 100vh;
+    }
+}
+
+.cancel-book-modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    inline-size: min(25rem, 100vw) !important;
+    max-block-size: 20rem !important;
+
+    .modaltitle{
+        margin-inline: auto;
+        text-align: center;
+        background-color: #1877F2;
+        /* inline-size: 60%; */
     }
 }

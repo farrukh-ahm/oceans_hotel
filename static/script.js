@@ -207,3 +207,25 @@ if(detailDisplay){
 //         card.classList.toggle("rotate")
 //     })
 // })
+
+// -------------------- CANCEL MODAL
+let cancelModalTrigger = document.querySelectorAll(".cancel-book-btn")
+let cancelModal = document.querySelector(".cancel-book-modal")
+let closeCancelModal = document.querySelector(".close-cancel-modal")
+
+if(cancelModalTrigger){
+
+    cancelModalTrigger.forEach(trigger => {
+        trigger.addEventListener("click", e=>{
+            let bookingId = trigger.getAttribute("data-booking")
+            cancelModal.showModal()
+        })
+    })
+
+}
+
+if(closeCancelModal){
+    closeCancelModal.addEventListener("click", ()=>{
+        cancelModal.close()
+    })
+}
