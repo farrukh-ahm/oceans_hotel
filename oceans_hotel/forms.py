@@ -35,11 +35,11 @@ class BookRoomForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
-        self.fields["check_in"].widget.attrs['data-validation'] = "check-in-validation"
+        # self.fields["check_in"].widget.attrs['data-validation'] = "check-in-validation"
         self.fields["check_in"].widget.attrs['readonly'] = True
         self.fields["check_in"].widget.attrs['class'] = "prevent-change"
 
-        self.fields["check_out"].widget.attrs['data-validation'] = "check-out-validation"
+        # self.fields["check_out"].widget.attrs['data-validation'] = "check-out-validation"
         self.fields["check_out"].widget.attrs['readonly'] = True
         self.fields["check_out"].widget.attrs['class'] = "prevent-change"
 

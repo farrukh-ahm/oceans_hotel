@@ -8,7 +8,7 @@
 
 
     {% if avail_rooms|length %}
-        <main class="form-wrapper booking-info-main">
+        <div class="form-wrapper booking-info-main">
 
             <form class="booking-form" method="POST" action="{% url 'confirmbooking' %}">
 
@@ -41,9 +41,7 @@
                 </div>
                 
                 <div class="room-button-container">
-                    <div class="hidden">{{form.check_in}}</div>
-                    <div class="hidden">{{form.check_out}}</div>
-                    <div class="hidden">{{form.total_cost}}</div>
+                    <div class="hidden">{{form}}</div>
                     <button class="btn btn-book submit-button">Book</button>
                 </div>
                 
@@ -54,8 +52,8 @@
                 <small>{{avail_rooms|length}} rooms available.</small>
             </div>
 
-        </main>
-
+        </div>
+        
     {% else %}
 
         {% if category == "" %}
@@ -64,7 +62,6 @@
             <p>No Room Category Selected.</p>
             <p class="date-modal-trigger">Please select a category here.</p>
         </div>
-        
         {% else %}
 
         <div class="general-message-container">
@@ -86,11 +83,13 @@
             <fieldset class="dates">
 
                 <div class="date-field-container date-picker check-in-div">
-                    {{form.check_in.label}}: {{form.check_in}}
+                    <label for="check-in">Check In Date: </label>
+                    <input type="date" id="check-in" name="check_in" data-validation="check-in-validation" required>
                 </div>
     
                 <div class="date-field-container date-picker check-out-div">
-                    {{form.check_out.label}}: {{form.check_out}}
+                    <label for="check-out">Check Out Date: </label>
+                    <input type="date" id="check-out" name="check_out" data-validation="check-out-validation" required>
                     <p class="invalid-text">Please check the check-out date</p>
                 </div>
 

@@ -123,22 +123,23 @@ rooms.forEach(room => room.addEventListener("change", e=>{
 
 // -------------------- BOOKING PAGE ELEMENTS
 
-let checkDates = document.querySelectorAll(".date-picker input");
+// let checkDates = document.querySelectorAll(".date-picker input");
 let dateChange = document.querySelectorAll(".date-modal-trigger");
 let dateModal = document.querySelector(".booking-modal");
 let dateModalClose = document.querySelector(".date-modal-close");
 
-if(checkDates){
-    checkDates.forEach(date => {
-        date.style.color = "rgb(128, 70, 27)"
-    })
-}
+// if(checkDates){
+//     checkDates.forEach(date => {
+//         date.style.color = "rgb(128, 70, 27)"
+//     })
+// }
 
 if (dateChange){
 
     dateChange.forEach(date => {
         date.addEventListener("click", ()=>{
             dateModal.showModal()
+
         })
 
     })

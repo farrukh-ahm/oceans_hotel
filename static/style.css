@@ -863,7 +863,8 @@ fieldset{
                     "form ." 8rem / 2fr 1fr;
     /* background-color: #1877F2; */
     background-image: var(--bg-gradient);
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    border-radius: 8px;
     padding-inline-end: 1.5em;
 
 
@@ -875,10 +876,11 @@ fieldset{
         gap: 2em;
         place-items: center;
         padding-block: 2em;
-        padding-inline: 1em;
+        padding-inline: 2.5em;
+        /* background-color: #1DA1F2; */
 
         .field-container{
-
+            inline-size: 100%;
             span{
                 color: var(--white-section-color)
             }
@@ -889,6 +891,16 @@ fieldset{
                 cursor: pointer;
             } */
 
+        }
+
+        .room-button-container{
+            /* background-color: #1877F2; */
+            inline-size: 100%;
+            
+            .btn-book{
+                inline-size: 100%;
+                block-size: 2em;
+            }
         }
     }
 
@@ -946,10 +958,10 @@ fieldset{
 
     .room-button-container{
         inline-size: 100%;
-        .btn-book{
+        /* .btn-book{
             inline-size: 100%;
             block-size: 2em;
-        }
+        } */
 
     }
 
