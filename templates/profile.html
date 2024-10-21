@@ -64,10 +64,11 @@
     </div>
     <div class="close-modal-container">
         <button class="close-cancel-modal">Abort</button>
+        <form method="POST" id="cancel-form">
+            {% csrf_token %}
+            <button>Cancel Booking</button>
+        </form>
     </div>
-    <form action="">
-        <button>Cancel Booking</button>
-    </form>
 
 </dialog>
 

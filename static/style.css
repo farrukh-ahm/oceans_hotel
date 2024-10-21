@@ -20,6 +20,7 @@
     --white-section-color: rgb(128, 70, 27);
     --section-block: 30rem;
     --bg-gradient: linear-gradient(to right, #c2b280, #c5b282, #c8b284, #cbb387, #ceb389, #d2b78d, #d7ba92, #dbbe96, #e1c69d, #e8cea4, #eed6ac, #f5deb3);
+    --cancel-color: rgba(220, 20, 60, 0.8);
 }
 
 html{
@@ -55,7 +56,7 @@ body{
 }
 
 .warning{
-    background-color: rgba(220, 20, 60, 0.5);
+    background-color: var(--cancel-color);
     backdrop-filter: blur(8px);
 }
 
@@ -687,10 +688,10 @@ fieldset{
     position: relative;
     transform: perspective(900px);
     transition: all 1s linear;
-    position: relative;
     block-size: 15em;
     aspect-ratio: 3/4;
     cursor: pointer;
+    --y: 0;
 }
 
 
@@ -1123,6 +1124,15 @@ fieldset{
                     margin-block: 1em;
                     border: 1px solid var(--white-section-color);
                     background-color: transparent;
+                    color: var(--white-section-color);
+                    cursor: pointer;
+                    transition: all 0.3s ease-out;
+
+                    &:hover{
+                        color: var(--black-section-color);
+                        background-color: var(--cancel-color);
+                        border-color: var(--cancel-color);
+                    }
                 }
 
             }
@@ -1168,11 +1178,56 @@ fieldset{
     transform: translate(-50%,-50%);
     inline-size: min(25rem, 100vw) !important;
     max-block-size: 20rem !important;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    background-image: var(--bg-gradient);
+    border: none;
+    border-radius: 8px;
+    /* border: 1px var(--white-section-color) solid; */
+
+    &::backdrop{
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(8px);
+    }
 
     .modaltitle{
         margin-inline: auto;
         text-align: center;
-        background-color: #1877F2;
+        color: var(--black-section-color);
+        /* background-color: #1877F2; */
         /* inline-size: 60%; */
+    }
+
+    .close-modal-container{
+        text-align: center;
+        margin-block: 0.75em;
+
+        .close-cancel-modal{
+            inline-size: 15rem;
+            block-size: 1.5rem;
+            margin-block-end: 0.5em;
+            background-color: transparent;
+            color: var(--white-section-color);
+            border: 1px solid var(--white-section-color);
+            transition: all 0.3s ease-out;
+            cursor: pointer;
+
+            &:hover{
+                background-color: var(--white-section-color);
+                color: var(--black-section-color);
+            }
+        }
+        
+        #cancel-form{
+            button{
+                inline-size: 8rem;
+                block-size: 1.5rem;
+                background-color: var(--cancel-color);
+                color: var(--black-section-color);
+                border: 1px solid var(--cancel-color);
+                cursor: pointer;
+            }
+        }
+
     }
 }

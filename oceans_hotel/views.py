@@ -178,3 +178,16 @@ class ProfileView(View):
         }
 
         return render(request, 'profile.html', context)
+        
+
+class CancelBooking(View):
+
+    def post(self, request, id, *args, **kwargs):
+        queryset = Bookings.objects.filter(guest=request.user)
+        booking = get_object_or_404(queryset, id=id)
+        # print(booking)
+        booking.delete()
+
+        messages.warning(request, 'Booking cancelled!')
+
+        return redirect(reverse('profile'))

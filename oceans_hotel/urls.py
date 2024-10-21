@@ -9,4 +9,5 @@ urlpatterns = [
     path('logout', views.UserLogout.as_view(), name='logout'),
     path('confirm-booking', views.BookSearch.as_view(), name='confirmbooking'),
     path('profile', views.ProfileView.as_view(), name='profile'),
+    path('cancelbooking/<int:id>', views.CancelBooking.as_view(), name='cancel_booking'),
 ]

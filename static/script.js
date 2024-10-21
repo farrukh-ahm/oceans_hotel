@@ -219,6 +219,8 @@ if(cancelModalTrigger){
     cancelModalTrigger.forEach(trigger => {
         trigger.addEventListener("click", e=>{
             let bookingId = trigger.getAttribute("data-booking")
+            let cancel_form = document.querySelector("#cancel-form")
+            cancel_form.setAttribute("action", `/cancelbooking/${bookingId}`)
             cancelModal.showModal()
         })
     })
