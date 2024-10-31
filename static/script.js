@@ -47,15 +47,88 @@ if(rightSlider){
 
 }
 
+// -------------------- SERVICES ANIMATION
 
-// -------------------- LOCATION CARD ROTATION
-let locationCard = document.querySelectorAll(".perspective-box");
+const services = document.querySelectorAll(".services");
 
-locationCard.forEach(card => {
-    card.addEventListener("click", ()=>{
-        card.classList.toggle("rotate")
+const servicesAppearAnimation = new IntersectionObserver(entries=>{
+
+    entries.forEach(entry=>{
+
+        entry.target.classList.toggle("services-appear", entry.isIntersecting)
+
+        if(entry.isIntersecting){
+            servicesAppearAnimation.unobserve(entry.target)
+        }
+
     })
+
+},
+{
+    threshold: 1
 })
+
+services.forEach(service=>{
+    servicesAppearAnimation.observe(service)
+});
+
+
+// -------------------- LOCATION CARD ROTATION AND ANIMATION
+let locationCard = document.querySelectorAll(".perspective-box");
+let locationFront = document.querySelectorAll(".loc-card")
+let locationBack = document.querySelectorAll(".loc-detail")
+let locationWrapper = document.querySelector(".location-wrapper")
+
+if(locationCard){
+
+    const perspectiveAnimation = new IntersectionObserver(entries=>{
+    
+        entries.forEach(entry=>{
+            // entry.target.style.transform = "translateX(0)"
+            // entry.target.style.opacity = "1"
+            entry.target.classList.toggle("perspective-box-appear", entry.isIntersecting)
+            
+            if(entry.isIntersecting){
+                perspectiveAnimation.unobserve(entry.target)
+            }
+        })
+    
+    
+    },
+    {
+        threshold: 0.5
+    })
+
+    perspectiveAnimation.observe(locationWrapper)
+
+    // locationCard.forEach(card=>{
+    //     perspectiveAnimation.observe(card)
+    // })
+
+    // let perspectiveBoxes = document.querySelectorAll(".perspective-box-appear")
+
+    // perspectiveBoxes.forEach(card => {
+    //     card.addEventListener("click", ()=>{
+    //         card.classList.toggle("rotate")
+    //     })
+    // })
+    
+    locationCard.forEach(card => {
+        card.addEventListener("click", ()=>{
+            card.classList.toggle("rotate")
+        })
+    })
+
+}
+
+
+// locationFront.forEach(front=>{
+//     perspectiveAnimation.observe(front)
+// })
+
+// locationBack.forEach(back=>{
+//     perspectiveAnimation.observe(back)
+// })
 
 
 // -------------------- RESTRICTING THE CHECK-IN DATES

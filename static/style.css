@@ -486,15 +486,34 @@ nav{
     justify-content: space-around;
     align-items: center;
     font-size: 1em;
+    opacity: 0;
+    /* transform: translateY(30%); */
 
 }
+
 
 .icon i {
     font-size: 3em;
 }
 
-.services > p{
+.services-para{
     font-size: 1em;
+}
+
+.services-appear{
+    animation: service-appear 0.5s ease-in forwards;
+}
+
+@keyframes service-appear {
+    0%{
+        transform: translateY(30%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* @media (max-width: 1050px){
@@ -678,6 +697,7 @@ fieldset{
     align-items: center;
     flex-wrap: wrap;
     gap: 2em;
+    opacity: 0;
     /* background-color: aquamarine; */
 
 }
@@ -687,11 +707,12 @@ fieldset{
     transform-origin: center;
     position: relative;
     transform: perspective(900px);
+    /* perspective: 900px; */
     transition: all 1s linear;
     block-size: 15em;
     aspect-ratio: 3/4;
     cursor: pointer;
-    --y: 0;
+    /* opacity: 0; */
 }
 
 
@@ -782,6 +803,23 @@ fieldset{
 
 .rotate{
     transform: rotateY(180deg);
+}
+
+.perspective-box-appear{
+    transform-style: preserve-3d;
+    animation: perspective-appear 0.8s ease-in forwards;
+}
+
+@keyframes perspective-appear{
+    0%{
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 
