@@ -77,7 +77,7 @@ services.forEach(service=>{
 let locationCard = document.querySelectorAll(".perspective-box");
 let locationFront = document.querySelectorAll(".loc-card")
 let locationBack = document.querySelectorAll(".loc-detail")
-let locationWrapper = document.querySelector(".location-wrapper")
+let locationWrapper = document.querySelectorAll(".location-wrapper")
 
 if(locationCard){
 
@@ -99,7 +99,10 @@ if(locationCard){
         threshold: 0.5
     })
 
-    perspectiveAnimation.observe(locationWrapper)
+    locationWrapper.forEach(location=>{
+
+        perspectiveAnimation.observe(location)
+    })
 
     
     locationCard.forEach(card => {
@@ -133,6 +136,22 @@ if(checkIn){
 if(checkOut){
 
     checkOut.addEventListener("change", e=>{
+        let inDate = checkIn.value
+        let outDate = checkOut.value
+    
+        if(inDate>outDate){
+            document.querySelector(".date-field-container p").style.opacity = 1;
+            document.querySelector(".index-room-search").style.display = "none";
+            return
+        }
+        if (inDate<outDate){
+            document.querySelector(".date-field-container p").style.opacity = 0;
+            document.querySelector(".index-room-search").style.display = "block"
+            return
+        }
+    })
+
+    checkIn.addEventListener("change", e=>{
         let inDate = checkIn.value
         let outDate = checkOut.value
     
