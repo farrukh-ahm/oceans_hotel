@@ -487,6 +487,7 @@ nav{
     align-items: center;
     font-size: 1em;
     opacity: 0;
+    color: var(--white-section-color);
     /* transform: translateY(30%); */
 
 }
@@ -494,6 +495,13 @@ nav{
 
 .icon i {
     font-size: 3em;
+    transition: all 0.3s ease-out;
+    
+}
+
+.icon:hover > i{
+    color: white;
+    filter: drop-shadow(0 0 3px var(--white-section-color));
 }
 
 .services-para{
@@ -607,6 +615,7 @@ fieldset{
     transition: all 0.2s linear;
     cursor: pointer;
     padding-block-end: 1em;
+    opacity: 0;
 
 }
 
@@ -663,6 +672,22 @@ fieldset{
     background-color: var(--white-section-color);
     color: var(--black-section-color);
     transform-origin: left;
+}
+
+.booking-section-appear{
+    animation: booking-appear 0.8s ease-in forwards;
+}
+
+@keyframes booking-appear{
+    0%{
+        transform: translateY(30%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* ---------------- LOCATIONS SECTION ------------------------ */
@@ -812,12 +837,12 @@ fieldset{
 
 @keyframes perspective-appear{
     0%{
-        transform: translateX(-10%);
+        transform: translateY(10%);
         opacity: 0;
     }
 
     100%{
-        transform: translateX(0);
+        transform: translateY(0);
         opacity: 1;
     }
 }

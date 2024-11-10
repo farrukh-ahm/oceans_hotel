@@ -101,17 +101,6 @@ if(locationCard){
 
     perspectiveAnimation.observe(locationWrapper)
 
-    // locationCard.forEach(card=>{
-    //     perspectiveAnimation.observe(card)
-    // })
-
-    // let perspectiveBoxes = document.querySelectorAll(".perspective-box-appear")
-
-    // perspectiveBoxes.forEach(card => {
-    //     card.addEventListener("click", ()=>{
-    //         card.classList.toggle("rotate")
-    //     })
-    // })
     
     locationCard.forEach(card => {
         card.addEventListener("click", ()=>{
@@ -121,14 +110,6 @@ if(locationCard){
 
 }
 
-
-// locationFront.forEach(front=>{
-//     perspectiveAnimation.observe(front)
-// })
-
-// locationBack.forEach(back=>{
-//     perspectiveAnimation.observe(back)
-// })
 
 
 // -------------------- RESTRICTING THE CHECK-IN DATES
@@ -192,6 +173,34 @@ rooms.forEach(room => room.addEventListener("change", e=>{
     }
 
 }))
+
+
+// -------------------- BOOKING ELEMENTS ANIMATION
+const dateField = document.querySelectorAll(".date-field-container");
+const catField = document.querySelectorAll(".cat-container");
+
+if(dateField && catField){
+
+    let bookingAnime = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+            entry.target.classList.toggle("booking-section-appear", entry.isIntersecting)
+
+            if(entry.isIntersecting){
+                bookingAnime.unobserve(entry.target)
+            }
+        })
+    }, {
+        threshold: 0.5
+    })
+
+    dateField.forEach(date=>{
+        bookingAnime.observe(date)
+    })
+
+    catField.forEach(cat=>{
+        bookingAnime.observe(cat)
+    })
+}
 
 
 // -------------------- BOOKING PAGE ELEMENTS
