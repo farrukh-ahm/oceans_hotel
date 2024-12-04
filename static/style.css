@@ -165,7 +165,6 @@ hr{
     min-block-size: 30dvh;
     inline-size: min(50rem,90vw);
     border-radius: 8px;
-    /* background-color: rgba(128, 70, 27, 0.3); */
     background-image: var(--bg-gradient);
     margin-inline: auto;
     display: grid;
@@ -181,7 +180,6 @@ hr{
 
     inline-size: 80%;
     block-size: 2em;
-    /* background-color: #1DA1F2; */
 
 }
 
@@ -228,7 +226,6 @@ hr{
 
 header{
 
-    /* background-color: var(--black-section); */
     position: sticky;
     top: 0;
     background-image: var(--bg-gradient);
@@ -237,8 +234,6 @@ header{
     block-size: 8rem;
     inline-size: 100dvw;
     z-index: 99;
-    /* background-image: url("../media/waves.gif"); */
-    /* overflow: hidden; */
 }
 
 h1{
@@ -280,7 +275,6 @@ nav{
         inline-size: 3rem;
         aspect-ratio: 1;
         border-radius: 50%;
-        /* border: 1px solid #fff; */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -302,7 +296,6 @@ nav{
         
         &:hover, &:focus-within{
             background-color: rgba(191,191,191,0.3);
-            /* backdrop-filter: blur(10px); */
         }
 
         input{
@@ -343,15 +336,10 @@ nav{
 .index-cars-container{
 
     container: sliders / inline-size;
-    /* inline-size: min(55rem, 100%); */
     inline-size: 100%;
     aspect-ratio: 2.5/1;
-    /* block-size: 50rem; */
     margin-inline: auto;
     position: relative;
-    /* margin-block: 2.5rem; */
-    /* border-radius: 8px; */
-    /* background-color: aqua; */
 
 }
 
@@ -361,7 +349,6 @@ nav{
     inset: 0;
     display: flex;
     overflow: hidden;
-    /* border-radius: 8px; */
     scroll-behavior: smooth;
 
 }
@@ -376,9 +363,6 @@ nav{
     inline-size: 100%;
     block-size: 100%;
     position: relative;
-    /* border-image: linear-gradient(hsl(240 100% 20% / 0.6), hsl(0 100% 20% / 0.6))
-    fill 1; */
-    /* border-radius: 8px; */
 
 }
 
@@ -460,7 +444,6 @@ nav{
     min-block-size: 25rem;
     align-content: center;
     text-align: center;
-    /* background-color: var(--black-section); */
     background-image: var(--bg-gradient);
     color: var(--black-section-color);
 
@@ -476,8 +459,6 @@ nav{
 
     inline-size: 100%;
     min-block-size: var(--section-block);
-    /* background-color: var(--white-section); */
-    /* background-color: burlywood; */
     color: var(--white-section-color);
 
 }
@@ -494,7 +475,6 @@ nav{
     column-gap: 1em;
     row-gap: 1.5em;
     place-content: center;
-    /* background-color: aqua; */
 
 }
 
@@ -508,7 +488,6 @@ nav{
     font-size: 1em;
     opacity: 0;
     color: var(--white-section-color);
-    /* transform: translateY(30%); */
 
 }
 
@@ -544,18 +523,6 @@ nav{
     }
 }
 
-/* @media (max-width: 1050px){
-    .services-container{
-        inline-size: 80%;
-    }
-}
-
-@media (max-width: 670px){
-    .services-container{
-        inline-size: 100%;
-    }
-} */
-
 
 /* ---------------- BOOKING SECTION ------------------------ */
 
@@ -575,8 +542,6 @@ nav{
     min-block-size: 20em;
     margin-inline: auto;
     padding-block: 1.25em;
-    /* border: 1px solid salmon; */
-    /* background-color: aqua; */
 
 }
 
@@ -587,11 +552,9 @@ fieldset{
 .dates{
     display: flex;
     justify-content: space-around;
-    /* align-items: center; */
     flex-wrap: wrap;
     padding: 1em;
     column-gap: 1.5em;
-    /* background-color: #1877F2; */
 }
 
 #check-in, #check-out{
@@ -658,13 +621,8 @@ fieldset{
     7px 7px 10px -5px transparent, 
     0 0 5px 0px rgba(255,255,255,0),
     0 55px 35px -20px rgba(0, 0, 0, 0.5);
-
-    /* padding-block-end: 0.25em; */
 }
 
-/* .cat-container:has(.radios:checked) + .cat-container{
-    opacity: 0.5;
-} */
 
 @container date-field (inline-size<=980px){
 
@@ -716,10 +674,8 @@ fieldset{
 
     inline-size: 100%;
     min-block-size: var(--section-block);
-    /* background-color: var(--black-section); */
     background-image: var(--bg-gradient);
     color: var(--black-section-color);
-    /* place-content: center; */
 
 }
 
@@ -735,7 +691,6 @@ fieldset{
     min-block-size: 20em;
     margin-block-start: 1.5em;
     padding-block: 2em;
-    /* margin-block-end: 3em; */
     margin-inline: auto;
     display: flex;
     justify-content: space-around;
@@ -743,7 +698,6 @@ fieldset{
     flex-wrap: wrap;
     gap: 2em;
     opacity: 0;
-    /* background-color: aquamarine; */
 
 }
 
@@ -752,25 +706,19 @@ fieldset{
     transform-origin: center;
     position: relative;
     transform: perspective(900px);
-    /* perspective: 900px; */
     transition: all 1s linear;
     block-size: 15em;
     aspect-ratio: 3/4;
     cursor: pointer;
-    /* opacity: 0; */
 }
 
 
 .loc-card{
 
-    /* block-size: 100%;
-    inline-size: 100%; */
     position: absolute;
     inset: 0;
     transform-style: preserve-3d;
     transform: translateZ(20px);
-    /* transition: all 0.5s linear; */
-    /* background-color: black; */
 
     img{
         position: absolute;
@@ -799,9 +747,6 @@ fieldset{
         }
     }
 
-    /* &:hover{
-        transform: rotateY(90deg);
-    } */
 
 }
 
@@ -809,18 +754,8 @@ fieldset{
 
     position: absolute;
     inset: 0;
-    /* top: 0;
-    left: 0;
-    inline-size: 100%;
-    block-size: 100%; */
     transform-style: preserve-3d;
     transform: rotateY(180deg) translateZ(20px);
-    /* background-color: rgba(128, 70, 27, 0.5);
-    backdrop-filter: blur(20px);
-    color: var(--black-section-color);
-    text-align: center;
-    place-content: center;
-    padding: 0.25em; */
     border-radius: 5px;
     isolation: isolate;
 
@@ -828,7 +763,6 @@ fieldset{
         inline-size: 100%;
         block-size: 100%;
         background-color: rgba(128, 70, 27, 0.5);
-        /* backdrop-filter: blur(20px); */
         color: var(--black-section-color);
         text-align: center;
         place-content: center;
@@ -873,7 +807,6 @@ fieldset{
 
     inline-size: 100%;
     min-block-size: 12rem;
-    /* background-color: var(--black-section); */
     background-image: var(--bg-gradient);
     color: var(--black-section-color);
     display: flex;
@@ -899,29 +832,37 @@ fieldset{
 
             background-color: var(--black-section-color);
             background-clip: text;
-            transition: all 0.3s linear;
 
              i {
                 font-size: 1.5em;
                 cursor: pointer;
-                /* background-color: red;
-                background-clip: text; */
                 color: transparent;
             }
 
         }
 
         .social.insta{
-            background-image: linear-gradient(to right,  #f9ce34, #ee2a7b, #6228d7);
-            /* background-clip: text; */
+            background-color: var(--black-section-color);
+            &:hover{
+                background-color: none;
+                background-image: linear-gradient(to right,  #f9ce34, #ee2a7b, #6228d7);
+            }
         }
 
         .fb{
-            background-color: #1877F2;
+            background-color: var(--black-section-color);
+
+            &:hover{
+                background-color: #1877F2;
+            }
         }
 
         .twitter{
-            background-color: #1DA1F2;
+            background-color: var(--black-section-color);
+
+            &:hover{
+                background-color: #1DA1F2;
+            }
         }
     }
 
