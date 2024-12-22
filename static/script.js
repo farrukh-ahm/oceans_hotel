@@ -248,8 +248,8 @@ if (dateChange){
 }
 
 if(dateModalClose){
-    dateModalClose.addEventListener("click", ()=>{
-
+    dateModalClose.addEventListener("click", (e)=>{
+        e.preventDefault()
         dateModal.close();
 
     })
