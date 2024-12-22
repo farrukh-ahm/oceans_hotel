@@ -1028,11 +1028,25 @@ fieldset{
         justify-content: space-around;
         align-items: center;
         gap: 0.75em;
-        block-size: 100%;
+        /* block-size: 100%; */
 
         .dates:has(.date-picker){
             gap: 1.25em;
             
+        }
+
+        .test-cat{
+
+            inline-size: 100%;
+            min-block-size: 15em;
+            margin-block: 2em;
+            padding-inline: 2em;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 1.75em;
+            flex-wrap: wrap;
+        
         }
 
         .modal-button-container{
@@ -1099,7 +1113,7 @@ fieldset{
 
     .booking-modal{
         min-inline-size: 100%;
-        block-size: max-content;
+        block-size: 100%;
         -webkit-box-sizing: unset !important;
         box-sizing: unset !important;
     }
