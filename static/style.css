@@ -1035,49 +1035,56 @@ fieldset{
             
         }
 
-        .modal-action{
+        .modal-button-container{
             inline-size: 100%;
-            block-size: 2em;
-            background-color: transparent;
-            color: var(--white-section-color);
-            border-radius: none;
-            border: 1px solid var(--white-section-color);
-            cursor: pointer;
-            transition: all 0.3s linear;
+            text-align: center;
+            /* background-color: #1DA1F2; */
 
-            &:hover{
-                background-color: var(--white-section-color);
+            .modal-action{
+                inline-size: 100%;
+                block-size: 2em;
+                background-color: transparent;
+                color: var(--white-section-color);
+                border-radius: none;
+                border: 1px solid var(--white-section-color);
+                cursor: pointer;
+                transition: all 0.3s linear;
+    
+                &:hover{
+                    background-color: var(--white-section-color);
+                    color: var(--black-section-color);
+                    transform-origin: left;
+                }
+            }
+    
+            .modal-close{
+    
+                inline-size: 50%;
+                block-size: 2em;
+                /* display: block; */
+                /* position: sticky;
+                left: 50%;
+                bottom: 2px; */
+                background-color: crimson;
                 color: var(--black-section-color);
-                transform-origin: left;
+                /* border-radius: none; */
+                outline: none;
+                border: 1px solid crimson;
+                cursor: pointer;
+                transition: all 0.3s linear;
+                margin: 0.75em auto;
+                /* margin-inline: auto;
+                margin-block: 0.75em; */
+        
+                &:hover{
+                    background-color: transparent;
+                    color: crimson;
+                    transform-origin: left;
+                }
+        
             }
         }
-
-        .modal-close{
-
-            inline-size: 50%;
-            block-size: 2em;
-            /* display: block; */
-            /* position: sticky;
-            left: 50%;
-            bottom: 2px; */
-            background-color: crimson;
-            color: var(--black-section-color);
-            /* border-radius: none; */
-            outline: none;
-            border: 1px solid crimson;
-            cursor: pointer;
-            transition: all 0.3s linear;
-            margin: 0.75em auto;
-            /* margin-inline: auto;
-            margin-block: 0.75em; */
-    
-            &:hover{
-                background-color: transparent;
-                color: crimson;
-                transform-origin: left;
-            }
-    
-        }        
+                
 
     }
 
