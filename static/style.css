@@ -1099,7 +1099,7 @@ fieldset{
 
     .booking-modal{
         min-inline-size: 100%;
-        min-block-size: 100%;
+        block-size: max-content;
         -webkit-box-sizing: unset !important;
         box-sizing: unset !important;
     }
