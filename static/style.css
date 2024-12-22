@@ -603,6 +603,10 @@ fieldset{
 
 }
 
+.cat-two{
+    opacity: 1 !important;
+}
+
 .radios{
     display: none;
 }

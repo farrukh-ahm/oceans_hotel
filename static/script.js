@@ -195,8 +195,8 @@ rooms.forEach(room => room.addEventListener("change", e=>{
 
 
 // -------------------- BOOKING ELEMENTS ANIMATION
-const dateField = document.querySelectorAll(".date-field-container");
-const catField = document.querySelectorAll(".cat-container");
+const dateField = document.querySelectorAll(".date-animation");
+const catField = document.querySelectorAll(".cat-animation");
 
 if(dateField && catField){
 
