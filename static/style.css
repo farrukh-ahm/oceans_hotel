@@ -158,8 +158,8 @@ hr{
 
 .form-container{
 
-    min-block-size: 30dvh;
-    inline-size: min(50rem,90vw);
+    min-block-size: 40dvh;
+    inline-size: min(30rem,90vw);
     border-radius: 8px;
     background-image: var(--bg-gradient);
     margin-inline: auto;
@@ -168,7 +168,6 @@ hr{
     gap: 2em;
     place-items: center;
     padding-block: 2em;
-    padding-inline: 2em;
 
 }
 
@@ -176,7 +175,6 @@ hr{
 
     inline-size: 80%;
     block-size: 2em;
-
 }
 
 .input-field{
@@ -877,9 +875,9 @@ fieldset{
     inline-size: min(40rem, 100%);
     margin-inline: auto;
     display: grid;
-    grid-template: "form image" 15rem
-                    "form ." 15rem
-                    "form ." 8rem / 2fr 1fr;
+    grid-template: "form ." 5rem
+                    "form image" 25rem
+                    "form ." 9rem / 1.5fr 2fr;
     background-image: var(--bg-gradient);
     border-radius: 8px;
     padding-inline-end: 1.5em;

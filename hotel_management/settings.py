@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["oceanshotel.up.railway.app"]
+ALLOWED_HOSTS = ["oceanshotel.up.railway.app", "*"]
 
 
 # Application definition
